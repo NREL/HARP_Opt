@@ -1,0 +1,30 @@
+% Options for the Gradient Search (GS) algorithm.
+% See http://www.mathworks.com/help/toolbox/optim/ug/fmincon.html for further documentation on Gradient Search (fmincon) optimization parameters.
+% Do not remove/edit the string "<startMatlabInput>".  Additional comments can be added above "<startMatlabInput>", and additional code can be added below "<startMatlabInput>".
+% 
+% -----  Gradient Search Options  ----------------------------------------------
+% Algorithm:				Algorithm used by fmincon, can choose 'interior-point', 'sqp', or 'active-set' CAUTION: active-set does not always obey constraints.  Try in this order.
+% AlwaysHonorConstraints: 	The default 'bounds' ensures that bound constraints are satisfied at every iteration. Disable by setting to 'none'.
+% Diagnostics:				Display diagnostic information about the function to be minimized or solved. The choices are 'on' or 'off'.
+% Display:					Level of display: Can choose 'off', 'iter', 'iter-detailed', 'notify', 'notify-detailed', 'final, or 'final-detailed'
+% FinDiffType: 				Finite differences used to estimate gradients, are either 'forward' or 'central'.
+% ScaleProblem:				'obj-and-constr' causes the algorithm to normalize all constraints and the objective function. Disable by setting to the default 'none'.
+% SubproblemAlgorithm:		Determines how the iteration step is calculated. The default, 'ldl-factorization', is usually faster than 'cg' (conjugate gradient), though 'cg' might be faster for large problems with dense Hessians.
+% Hessian:					Chooses how fmincon calculates the Hessian. The choices are: 'bfgs' (default), 'lbfgs', {'lbfgs',Positive Integer}
+% MaxIter: 					Maximum number of iterations allowed.
+% TolX: 					Termination tolerance on x, a positive scalar.
+% TolFun: 					Termination tolerance on the function value, a positive scalar.
+
+<startMatlabInput>
+options = optimset('Algorithm',              interior-point,
+				   'AlwaysHonorConstraints', 'bounds',                       
+				   'Diagnostics',            off,
+				   'Display',                iter-detailed,
+				   'FinDiffType',            central,
+				   'ScaleProblem',           obj-and-constr,
+				   'SubproblemAlgorithm ',   cg, 
+				   'Hessian',                bfgs, 
+				   'UseParallel',            'never',
+				   'MaxIter',                60,
+				   'TolX',                   1e-6,
+				   'TolFun',                 1e-6);

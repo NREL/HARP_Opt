@@ -1,0 +1,180 @@
+
+
+ Executing HARP_Opt version 3.00.00_RC1 for case test_VSFP.
+
+Interpolating: FFA_0300.dat to FFA_0240.dat...
+Warning: Airfoil files FFA_0300.dat and FFA_0240.dat have Reynolds Numbers of 1.470000 and 1.450000, respectively.
+         These Reynolds numbers do not match as they should, continuing anyways... 
+
+Interpolating: FFA_0240.dat to FFA_0210.dat...
+Warning: Airfoil files FFA_0240.dat and FFA_0210.dat have Reynolds Numbers of 1.450000 and 1.780000, respectively.
+         These Reynolds numbers do not match as they should, continuing anyways... 
+
+{Warning: Out of range or non-integer values truncated during conversion to character.} 
+{> In <a href="matlab: opentoline('C:\Users\Danny\Dropbox\UW\research\codes\HARP_Opt\svn\branches\v2.98.02\Source\parseOptimizationOptions.m',24,1)">parseOptimizationOptions at 24</a>
+  In <a href="matlab: opentoline('C:\Users\Danny\Dropbox\UW\research\codes\HARP_Opt\svn\branches\v2.98.02\HARP_Opt.m',51,1)">HARP_Opt at 51</a>
+  In <a href="matlab: opentoline('C:\Users\Danny\Dropbox\UW\research\codes\HARP_Opt\svn\branches\v2.98.02\batch_analysis.m',38,1)">batch_analysis at 38</a>} 
+
+Diagnostic information.
+	objective function = @(x0)optFitness(x0,SIM,OPT,TURB,BLADE,ENV,WTP,CAV,state)
+	10 Inequality constraints
+	0 Equality constraints
+	10 Total number of linear constraints
+
+	X0 = [  31.2499 ;  3.8281 ;  3.7874 ;  -0.16051 ;  -1.3522 ;  2.2878 ;  1.8339 ;  0.69316 ;  0.69315 ;  0.56933 ;  3 ;  6 ;  8.75 ;  6.2832 ]
+Modified options:
+	options.TolMesh = 1e-006
+	options.TolCon = 1e-006
+	options.TolX = 0.001
+	options.TolFun = 0.001
+	options.TolBind = 1e-006
+	options.MaxIter = 100
+	options.TimeLimit = Inf
+	options.MaxFunEvals = 1000
+	options.MeshContraction = 0.5
+	options.MeshExpansion = 2 
+	options.MeshAccelerator = 'on'
+	options.MeshRotate = 'on'
+	options.InitialMeshSize = 1 
+	options.InitialPenalty = 10
+	options.PenaltyFactor = 100
+	options.ScaleMesh = 'on'
+	options.MaxMeshSize = Inf
+	options.PollMethod = 'gsspositivebasis2n'
+	options.CompletePoll = 'on'
+	options.PollingOrder = 'consecutive'
+	options.CompleteSearch = 'on'
+	options.Display = 'diagnose'
+	options.PlotFcns = {  @psplotbestf @psplotmeshsize @psplotfuncount @psplotbestx }
+	options.PlotInterval = 1 
+	options.Cache = 'on'
+	options.CacheSize = 10000
+	options.CacheTol = 1e-006
+	options.Vectorized = 'off'
+End of diagnostic information.
+
+Iter     f-count          f(x)      MeshSize     Method
+    0        1   -1.81585e+006             1      
+    1       10   -1.81585e+006           0.5     Refine Mesh
+    2       24   -1.8168e+006             1     Successful Poll
+    3       33   -1.8168e+006           0.5     Refine Mesh
+    4       49   -1.81704e+006             1     Successful Poll
+    5       58   -1.81843e+006             2     Successful Poll
+    6       64   -1.81843e+006             1     Refine Mesh
+    7       75   -1.81895e+006             2     Successful Poll
+    8       81   -1.81895e+006             1     Refine Mesh
+    9       92   -1.81895e+006           0.5     Refine Mesh
+   10      108   -1.81994e+006             1     Successful Poll
+   11      119   -1.81994e+006           0.5     Refine Mesh
+   12      133   -1.81994e+006          0.25     Refine Mesh
+   13      151   -1.82177e+006           0.5     Successful Poll
+   14      171   -1.82913e+006             1     Successful Poll
+   15      188   -1.83981e+006             2     Successful Poll
+   16      200   -1.8402e+006             4     Successful Poll
+   17      205   -1.8402e+006             2     Refine Mesh
+   18      217   -1.8402e+006             1     Refine Mesh
+   19      234   -1.84188e+006             2     Successful Poll
+   20      248   -1.84188e+006             1     Refine Mesh
+   21      265   -1.8423e+006             2     Successful Poll
+   22      277   -1.8423e+006             1     Refine Mesh
+   23      296   -1.8423e+006           0.5     Refine Mesh
+   24      318   -1.84875e+006             1     Successful Poll
+   25      337   -1.84875e+006           0.5     Refine Mesh
+   26      358   -1.84875e+006          0.25     Refine Mesh
+   27      384   -1.85134e+006           0.5     Successful Poll
+   28      406   -1.85134e+006          0.25     Refine Mesh
+   29      432   -1.8514e+006           0.5     Successful Poll
+   30      454   -1.85164e+006             1     Successful Poll
+
+Iter     f-count        f(x)       MeshSize      Method
+   31      474   -1.85164e+006           0.5     Refine Mesh
+   32      496   -1.85171e+006             1     Successful Poll
+   33      514   -1.85171e+006           0.5     Refine Mesh
+   34      536   -1.85171e+006          0.25     Refine Mesh
+   35      562   -1.85175e+006           0.5     Successful Poll
+   36      584   -1.85175e+006          0.25     Refine Mesh
+   37      610   -1.85175e+006         0.125     Refine Mesh
+   38      636   -1.85175e+006        0.0625     Refine Mesh
+   39      662   -1.8518e+006         0.125     Successful Poll
+   40      688   -1.85193e+006          0.25     Successful Poll
+   41      714   -1.85193e+006         0.125     Refine Mesh
+   42      740   -1.85193e+006        0.0625     Refine Mesh
+   43      768   -1.85197e+006         0.125     Successful Poll
+   44      794   -1.85197e+006        0.0625     Refine Mesh
+   45      822   -1.85197e+006       0.03125     Refine Mesh
+   46      850   -1.85223e+006        0.0625     Successful Poll
+   47      878   -1.85225e+006         0.125     Successful Poll
+   48      904   -1.85225e+006        0.0625     Refine Mesh
+   49      932   -1.85225e+006       0.03125     Refine Mesh
+   50      960   -1.85225e+006       0.01563     Refine Mesh
+   51      988   -1.85226e+006       0.03125     Successful Poll
+   52     1000   -1.85226e+006       0.01563     Refine Mesh
+Maximum number of function evaluations exceeded: increase options.MaxFunEvals.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+
+MultiStart completed the runs from all start points.
+
+All 5 local solver runs converged with a positive local solver exit flag.
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\UW\research\codes\HARP_Opt\svn\branches\v2.98.02\Output\test_VSFP\test_VSFP.mat 
+
+HARP_Opt version 3.00.00_RC1 terminated normally for case test_VSFP.

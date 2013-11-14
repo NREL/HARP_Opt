@@ -1,0 +1,148 @@
+Interpolating: FFA_1000.dat to FFA_0300.dat...
+Warning: Airfoil files FFA_1000.dat and FFA_0300.dat have Reynolds Numbers of 2.000000 and 1.470000, respectively.
+         These Reynolds numbers do not match as they should, continuing anyways... 
+
+Interpolating: FFA_0300.dat to FFA_0240.dat...
+Warning: Airfoil files FFA_0300.dat and FFA_0240.dat have Reynolds Numbers of 1.470000 and 1.450000, respectively.
+         These Reynolds numbers do not match as they should, continuing anyways... 
+
+[Warning: Out of range or non-integer values truncated during conversion to character.] 
+[> In <a href="matlab: opentoline('C:\Users\danny\Dropbox\UW\research\codes\HARP_Opt\svn\branches\v2.98.02\Source\parseOptimizationOptions.m',24,1)">parseOptimizationOptions at 24</a>
+  In <a href="matlab: opentoline('C:\Users\danny\Dropbox\UW\research\codes\HARP_Opt\svn\branches\v2.98.02\HARP_Opt.m',173,1)">HARP_Opt at 173</a>
+  In <a href="matlab: opentoline('C:\Users\danny\Dropbox\UW\research\codes\HARP_Opt\svn\branches\v2.98.02\batch_analysis.m',36,1)">batch_analysis at 36</a>] 
+
+Diagnostic information.
+	objective function = @(x0)optAero(x0,SIM,OPT,TURB,BLADE,ENV,WTP,CAV,state)
+	7 Inequality constraints
+	0 Equality constraints
+	7 Total number of linear constraints
+
+	X0 = [  9.5169 ;  -3.4905 ;  -3.4905 ;  -5.5369 ;  1.5511 ;  0.69665 ;  0.64503 ;  0.48541 ;  4 ;  8.5 ;  10 ]
+Modified options:
+	options.TolMesh = 1e-06
+	options.TolCon = 1e-06
+	options.TolX = 0.001
+	options.TolFun = 0.001
+	options.TolBind = 1e-06
+	options.MaxIter = 100
+	options.TimeLimit = Inf
+	options.MaxFunEvals = 1000
+	options.MeshContraction = 0.5
+	options.MeshExpansion = 2 
+	options.MeshAccelerator = 'on'
+	options.MeshRotate = 'on'
+	options.InitialMeshSize = 1 
+	options.InitialPenalty = 10
+	options.PenaltyFactor = 100
+	options.ScaleMesh = 'on'
+	options.MaxMeshSize = Inf
+	options.PollMethod = 'gsspositivebasis2n'
+	options.CompletePoll = 'on'
+	options.PollingOrder = 'consecutive'
+	options.CompleteSearch = 'on'
+	options.Display = 'diagnose'
+	options.PlotFcns = {  @psplotbestf @psplotmeshsize @psplotfuncount @psplotbestx }
+	options.PlotInterval = 1 
+	options.Cache = 'on'
+	options.CacheSize = 10000
+	options.CacheTol = 1e-06
+	options.Vectorized = 'off'
+End of diagnostic information.
+
+Iter     f-count          f(x)      MeshSize     Method
+    0        1    1.24974e+06             1      
+    1       15         608489             2     Successful Poll
+    2       24         384326             4     Successful Poll
+    3       31         308858             8     Successful Poll
+    4       37         267014            16     Successful Poll
+    5       40         267014             8     Refine Mesh
+    6       46         244286            16     Successful Poll
+    7       47         244286             8     Refine Mesh
+    8       50         244286             4     Refine Mesh
+    9       53         236683             8     Successful Poll
+   10       59         236683             4     Refine Mesh
+   11       66         236683             2     Refine Mesh
+   12       75         232037             4     Successful Poll
+   13       83         220420             8     Successful Poll
+   14       84         186750            16     Successful Poll
+   15       84         186750             8     Refine Mesh
+   16       86         186750             4     Refine Mesh
+   17       88         186750             2     Refine Mesh
+   18       93         184169             4     Successful Poll
+   19       95         184169             2     Refine Mesh
+   20      101         184169             1     Refine Mesh
+   21      108         181145             2     Successful Poll
+   22      115         181145             1     Refine Mesh
+   23      122         181145           0.5     Refine Mesh
+   24      132         165997             1     Successful Poll
+   25      139         165083             2     Successful Poll
+   26      145         164757             4     Successful Poll
+   27      147         164757             2     Refine Mesh
+   28      152         164757             1     Refine Mesh
+   29      158         164709             2     Successful Poll
+   30      161         164709             1     Refine Mesh
+
+Iter     f-count        f(x)       MeshSize      Method
+   31      169         164532             2     Successful Poll
+   32      172         164532             1     Refine Mesh
+   33      178         164532           0.5     Refine Mesh
+   34      190         163651             1     Successful Poll
+   35      196         163651           0.5     Refine Mesh
+   36      207         163651          0.25     Refine Mesh
+   37      224         157462           0.5     Successful Poll
+   38      239         154127             1     Successful Poll
+   39      254         148847             2     Successful Poll
+   40      266         146738             4     Successful Poll
+   41      275         145293             8     Successful Poll
+   42      277         145293             4     Refine Mesh
+   43      279         145293             2     Refine Mesh
+   44      282         145293             1     Refine Mesh
+   45      288         145293           0.5     Refine Mesh
+   46      298         145293          0.25     Refine Mesh
+   47      316         143004           0.5     Successful Poll
+   48      332         141756             1     Successful Poll
+   49      348         141184             2     Successful Poll
+   50      364         141184             1     Refine Mesh
+   51      380         141184           0.5     Refine Mesh
+   52      396         140237             1     Successful Poll
+   53      412         139930             2     Successful Poll
+   54      428         139930             1     Refine Mesh
+   55      444         139592             2     Successful Poll
+   56      460         139592             1     Refine Mesh
+   57      476         139265             2     Successful Poll
+   58      492         139265             1     Refine Mesh
+   59      508         139265           0.5     Refine Mesh
+   60      524         139101             1     Successful Poll
+
+Iter     f-count        f(x)       MeshSize      Method
+   61      540         139101           0.5     Refine Mesh
+   62      556         139066             1     Successful Poll
+   63      572         139066           0.5     Refine Mesh
+   64      588         139025             1     Successful Poll
+   65      604         139025           0.5     Refine Mesh
+   66      620         139025          0.25     Refine Mesh
+   67      637         138970           0.5     Successful Poll
+   68      653         138970          0.25     Refine Mesh
+   69      670         138833           0.5     Successful Poll
+   70      686         138756             1     Successful Poll
+   71      700         138756           0.5     Refine Mesh
+   72      716         138756          0.25     Refine Mesh
+   73      733         138648           0.5     Successful Poll
+   74      749         138648          0.25     Refine Mesh
+   75      766         138648         0.125     Refine Mesh
+   76      785         138620          0.25     Successful Poll
+   77      802         138620         0.125     Refine Mesh
+   78      821         138618          0.25     Successful Poll
+   79      838         138618         0.125     Refine Mesh
+   80      857         138618        0.0625     Refine Mesh
+   81      876         138614         0.125     Successful Poll
+   82      895         138614        0.0625     Refine Mesh
+   83      914         138614       0.03125     Refine Mesh
+   84      935         138087        0.0625     Successful Poll
+   85      954         138061         0.125     Successful Poll
+   86      973         138017          0.25     Successful Poll
+   87      990         137987           0.5     Successful Poll
+   88     1000         137987          0.25     Refine Mesh
+Maximum number of function evaluations exceeded: increase options.MaxFunEvals.
+All data in workspace saved to MAT-file: test_FSVP-S_workspace.mat.
+HARP_Opt version 2.98.02 terminated normally for case test_FSVP-S.

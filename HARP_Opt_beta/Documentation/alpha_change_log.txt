@@ -1,0 +1,264 @@
+% ------------------------------------------------------------------------------
+% HARP_Opt change log: alpha branch.  
+% -------------------------------------------------------------------------------
+This file summarizes changes made after v2.00.00.  Not all features are 
+documented yet, or even present from v2.00.00. Many new features were added and 
+some were removed, which should be evident from the new HARP_Opt input file 
+format.  No official documentation is available yet; however, users already 
+familiar with HARP_Opt v2.00.00 should read over the old user's guide and read
+the new input files in order to learn how to use the program for now.  Please
+send further comments and questions to:
+
+Danny Sale    - sale.danny@gmail.com    - University of Washington
+Mike Lawson   - Michael.Lawson@nrel.gov - National Renewable Energy Laboratory
+Ye Li         - ye.li@nrel.gov          - National Renewable Energy Laboratory
+Marshall Buhl - Marshall.Buhl@nrel.gov  - National Renewable Energy Laboratory
+
+
+%% ------------------------------------------------------------------------------
+% May 22, 2012
+% -------------------------------------------------------------------------------
+This is a major rewrite of HARP_Opt v2.00.00.  Not all 
+original features of v2.00.00 have been included yet, but major changes include:
+1) no more GUI, all user input read from text input files
+2) eliminated usage of global variables
+3) uses WT_Perf v3.05.00a-adp, 10-Jan-2012
+4) includes Pattern Search Optimization 
+5) contains input fields for more detailed structural optimization (but source 
+   code is mostly missing for struct. optimization)
+
+compiled with Matlab 2013a
+%% ------------------------------------------------------------------------------
+% May 23, 2012
+% -------------------------------------------------------------------------------
+Modified the input file and the way HARP-Opt reads data from the input file. 
+This change does a few things:
+(1) Data can be ordered any way in the data file. I.e. the order of the variables 
+    is no longer impt.
+(2) The data input portion of the HARP-Opt code is significantly shortened.
+
+These changes are not important and do not add any functionality to the code. The 
+main reason for these changes is to introduce to Danny how to use subversion to 
+collaborate.
+
+
+%% ------------------------------------------------------------------------------
+% May 24, 2012
+% -------------------------------------------------------------------------------
+Made several modifications that do not affect how the code functions. The only 
+substantial change made has to do with how the input files are read and parsed. 
+Specifically, the input files are not formated line matlab code and the order in 
+which the variables are entered in the input file are no longer important.
+
+
+%% ------------------------------------------------------------------------------
+% May 25, 2012
+% -------------------------------------------------------------------------------
+Added a development plan to the "documentation" folder
+
+
+%% ------------------------------------------------------------------------------
+% May 29, 2012
+% -------------------------------------------------------------------------------
+Added Jin Hack's work on pattern search to the Documentation folder
+
+
+%% ------------------------------------------------------------------------------
+% May 31, 2012
+% -------------------------------------------------------------------------------
+Major update
+1. Simplified input files
+2. Created var that defines the WT_Perf.exe file
+3. Changed the way the PS and GA options are set in the code
+4. HARP_Opt can also be run as a function by uncommenting the line of the code and 
+   commenting out the input file - need to work more on this before the release.
+
+   
+%% ------------------------------------------------------------------------------
+% May 31, 2012
+% -------------------------------------------------------------------------------
+Minor updates while implementing data structures in the code and the input files
+
+%% ------------------------------------------------------------------------------
+% June 8, 2012
+% -------------------------------------------------------------------------------
+Major revision. 
+- Switched the variables over to "matlab structures". This simplifies the calling 
+  and returning of function variables.
+- The code is not "cross-platform" and can be run on windows/osx/linux by changing 
+  the name of the WT-Perf executible file in the input file (specifically, by 
+  setting the WTP.wtpExe variable in the input file)
+- A matlab data structure is now used to call the PS algorythim. This has not yet 
+  been inplemented for the GA
+
+Results from this version of the code needs to be checked against Danny's 
+origional version that was committed to the dsc branch of the code.
+
+
+%% ------------------------------------------------------------------------------
+% June 11, 2012
+% -------------------------------------------------------------------------------
+-minor revisions to HARP_Opt initialization (creation and copying of files to 
+ output directory)
+-starting adding source code from CoBlade for structural optimization
+-added CoBlade User's Guide to Documentation folder
+
+%% ------------------------------------------------------------------------------
+% June 13, 2012
+% -------------------------------------------------------------------------------
+Major revision:
+1) ported all necessary CoBlade source files needed for structural analysis and 
+   optimization
+2) structural analysis of CoBlade can now be called, but implementation of 
+   structural optimization is not finished yet
+3) changed the way optimization is initialized, now multi-objective GA is used 
+   when doing structural optimization and PS is used otherwise
+4) changed the way the initial guess for the aero design variables are computed 
+   (can also generate an initial population for GA now too)
+5) needed to move addpath() commands to before any function calls from the source 
+   directory (HARP_Opt.m and HARP_Opt_Init.m still need to be organized a little 
+   differently I think)
+6) did some re-organization of files in root, source, and documentation 
+   directories
+   
+
+%% ------------------------------------------------------------------------------
+% July 20, 2012
+% -------------------------------------------------------------------------------
+Updated version in which the number of matlab objects has been significantly 
+reduced. The BEMT object, the STR object, and the MODAL object have been removed 
+because they are not being used at this time
+
+This version of the code is not working because of the following error
+
+#---------------------------------------------------
+Error using barrier (line 23)
+Objective function is undefined at initial point. Fmincon cannot continue.
+
+Error in fmincon (line 841)
+    [X,FVAL,EXITFLAG,OUTPUT,LAMBDA,GRAD,HESSIAN] =
+    barrier(funfcn,X,A,B,Aeq,Beq,l,u,confcn,options.HessFcn, ...
+
+Error in fitBezier (line 17)
+yCP  = fmincon(FUN,yCPo,A,b,[],[],lb,ub,[],Options);
+
+Error in HARP_Opt (line 138)
+        yCPchord =
+        fitBezier(TURB.R_ELM,chordGmod,xCPc,Atc,zeros(BLADE.NUM_CP-1,1),BLADE.CHORD_LB,BLADE.CHORD_UB);"
+#---------------------------------------------------
+
+
+%% ------------------------------------------------------------------------------
+% July 27, 2012
+% -------------------------------------------------------------------------------
+Major update
+1. Continued to implement data sructures
+2. Re-wrote the glauert optimal blade initilization. I renamed the origional file 
+   to Source/geomGlauertOpt_example.m and added it to the repositiory. Because the 
+   Glauert solution is slightly different from Danny's (I think mine is correct) 
+   the results of the PS algorithim are slightly different.
+
+
+%% ------------------------------------------------------------------------------
+% July 30, 2012
+% -------------------------------------------------------------------------------
+Added guessOptimalClCd
+
+
+%% ------------------------------------------------------------------------------
+% Aug 16, 2012
+% -------------------------------------------------------------------------------
+Minor update - working on making the circular root optimization option work
+
+
+%% ------------------------------------------------------------------------------
+% Oct 1, 2012
+% -------------------------------------------------------------------------------
+Added branch v2.90.00a-dcs.  Overview of changes:
+
+
+-all the TURB.CONTROL cases should work now
+-foil and circular root cases should both work now
+-added fitness functions for all TURB.CONTROL cases and OPT.AERO cases, that 
+ reflect latest ideas for penalty functions
+-updated the format of the ENV.FLOW_FILE, this file requires fewer inputs now and 
+ will hopefully be more intuitive to use.  The user now inputs "fraction 
+ occurrence" 
+ for custom velocity data (where the sum of fraction occurrence column must be 
+ equal to 1).
+-removed many source files that were no longer be used, and re-organized 
+ directory structure to reduce "clutter"
+-in the source code, removed all references to the Co-Blade source code that was 
+ left-over from a previous branch in order  to reduce "clutter"
+-updated the HARP_OPt main input files (added and removed some variables to 
+ reflect latest branch).  There should be no superfluous variables in the input 
+ files now.
+-compiled a new version of WT_Perf (and committed to SVN) that fixes some of the 
+ convergences issues (use WT_Perf v3.05.10a-dcs).  Andrew Platt seemed to fix 
+ most of the convergence issues with his most recent v3.05.00 branch, and 
+ v3.05.10a-dcs makes some further minor improvements.  WT_Perf still has some 
+ convergence problems to be worked out in the induction iteration algorithms, 
+ but this is an improvement at least (also, WT_Perf is running super slow 
+ compared to older versions--can it be speeded up?).
+
+
+%% ------------------------------------------------------------------------------
+% Jan 25, 2013
+% -------------------------------------------------------------------------------
+Added branch v2.95.00a-dcs.  Overview of changes:
+
+-made HARP_Opt compatible with latest stable version of WT_Perf (trunk v3.05.00a-adp, 
+ 09-Nov-2012 Andy Platt).
+-added some WT_Perf executables compiled on linux to test them out, HARP_Opt & 
+ WT_Perf seem to work great on linux now ;-)
+-added a test case for Nick Stelzenmuller, who wants to design VS-FP turbines with a 
+ fixed tip-speed-ratio, which overrides the TSR that would otherwise be found by the 
+ optimization algorithm.  (just testing this feature out)
+-fixed a bug in the function which parses the input file for the Genetic Algorithms 
+ options 
+-compiled HARP_Opt on Windows to see if it works, and yes it does ;-).  
+
+The main file HARP_Opt.m is now a function and can be called from the command line with 
+similar syntax to WT_Perf.  For example, from the command line enter: 
+ "HARP_Opt.exe inputFilename.inp" to run HARP_Opt for the specified input file.
+
+
+%% ------------------------------------------------------------------------------
+% Mar 28, 2013
+% -------------------------------------------------------------------------------
+Added branch v2.96.00.  Overview of changes:
+
+-added an Excel file which can quickly visualize the HARP_Opt results. Work in 
+ progress.  
+
+-changed the format for the "Inflow_Data" input file which stores velocity 
+ probability density data.  The file format now matches the data output by the 
+ UW-NNMREC Resource Characterization Toolbox.
+
+-added a log file, which records output from the command line.  This is helpful
+ for debugging purposes.
+
+
+%% ------------------------------------------------------------------------------
+% Aug 15, 2013
+% -------------------------------------------------------------------------------
+Added branch v2.98.01.  Overview of changes:
+
+-added multi-objective optimization using the genetic algorithm.  Now possible to 
+ find the set of Pareto optimal solutions when maximizing energy production and 
+ minimizing the root flap bending moment.  Added some basic plotting and 
+ output for the multi-objective genetic algorithm (MOGA)
+ 
+-changed the way Variable-Speed turbines designed.  Instead of finding the optimal TSR
+by doing a parametric anlysis with WT_Perf, now TSR is considered a design variable by
+the optimization algorithm.  This should make the program run much faster.
+
+-added Particle Swarm optimization algorithm
+
+
+
+
+
+
+
+
