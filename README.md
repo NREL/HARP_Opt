@@ -26,10 +26,10 @@ If you came to this page directly without going through the NWTC Information Por
 
 ## Run Examples
 
-From the Matlab prompt, 
+From the Matlab prompt (compatible with Linux, Windows, and Mac), 
 
     $ HARP_Opt input_filename.inp
 
-or from the Windows command prompt
+or from the Windows command prompt (using the compiled version)
 
-    $ HARP_Opt.exe input_filename.inp
+    $ HARP_Opt_windows.exe input_filename.inp
