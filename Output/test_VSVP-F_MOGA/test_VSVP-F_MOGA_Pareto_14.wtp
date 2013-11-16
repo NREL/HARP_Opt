@@ -1,0 +1,150 @@
+-----  WT_Perf Input File  -----------------------------------------------------
+Generated automatically by HARP_Opt version 3.00.00_RC1 on November 16, 2013  7:45 AM 
+Compatible with WT_Perf v3.05.00a-adp.
+-----  Input Configuration  ----------------------------------------------------
+false     Echo:          Echo input parameters to "<rootname>.ech"?
+true      DimenInp:      Turbine parameters are dimensional?
+true      Metric:        Turbine parameters are Metric (MKS vs FPS)?
+-----  Model Configuration  ----------------------------------------------------
+1         NumSect:       Number of circumferential sectors.
+10        MaxIter:       Max number of iterations for Newton's method to find induction factor.
+1000      NSplit:        Max number of iterations for binary search to find induction factor.
+1.0e-005  ATol:          Error tolerance for induction iteration.
+1.0e-005  SWTol:         Error tolerance for skewed-wake iteration.
+-----  Algorithm Configuration  ------------------------------------------------
+true      TipLoss:       Use the Prandtl tip-loss model?
+true      HubLoss:       Use the Prandtl hub-loss model?
+true      Swirl:         Include Swirl effects?
+true      SkewWake:      Apply skewed-wake correction?
+true      IndType:       Use BEM induction algorithm?
+true      AIDrag:        Use the drag term in the axial induction calculation?
+true      TIDrag:        Use the drag term in the tangential induction calculation?
+true      TISingularity: Use the singularity avoidance method in the tangential-induction calculation?
+false     DAWT:          Run Diffuser Augmented Water Turbine Analysis?
+true      Cavitation:    Run cavitation check? checks 12 oclock azimuth
+-----  Cavitation Model  -------------------------------------------------------
+101325.0  PressAtm:      Air Atmospheric Pressure, Pa units, absolute
+2500.000  PressVapor:    Vapor Pressure of Water, Pa units, absolute
+1.000     CavSF:         Cavitation safety factor
+55.000    WatDepth:      Depth from water free surface to mudline (tower base)
+-----  Turbine Data  -----------------------------------------------------------
+2         NumBlade:      Number of blades.
+10.000    RotorRad:      Rotor radius [length].
+1.000     HubRad:        Hub radius [length or div by radius].
+0.000     PreCone:       Precone angle, positive downstream [deg].
+0.000     Tilt:          Shaft tilt [deg].
+0.000     Yaw:           Yaw error [deg].
+20.000    HubHt:         Hub height [length or div by radius].
+30        NumSeg:        Number of blade segments (entire rotor radius).
+RElm        Twist       Chord    AFfile       PrntElem
+1.012       22.391      1.668       1           true
+1.061       21.768      1.664       2           true
+1.159       20.609      1.653       3           true
+1.305       19.033      1.632       4           true
+1.496       17.197      1.599       5           true
+1.731       15.240      1.551       6           true
+2.008       13.287      1.488       7           true
+2.322       11.418      1.409       8           true
+2.672       9.690       1.318       9           true
+3.052       8.139       1.217       10          true
+3.460       6.772       1.111       11          true
+3.890       5.586       1.002       12          true
+4.337       4.570       0.895       13          true
+4.797       3.702       0.793       14          true
+5.265       2.961       0.698       15          true
+5.735       2.325       0.614       16          true
+6.203       1.773       0.540       17          true
+6.663       1.290       0.477       18          true
+7.110       0.861       0.425       19          true
+7.540       0.479       0.383       20          true
+7.948       0.136       0.350       21          true
+8.328       -0.169      0.323       22          true
+8.678       -0.439      0.302       23          true
+8.992       -0.671      0.286       24          true
+9.269       -0.867      0.272       25          true
+9.504       -1.028      0.261       26          true
+9.695       -1.153      0.251       27          true
+9.841       -1.245      0.244       28          true
+9.939       -1.304      0.239       29          true
+9.988       -1.334      0.237       30          true
+-----  Aerodynamic Data  -------------------------------------------------------
+1025.000  Rho:           Air density [mass/volume].
+1.00e-006 KinVisc:       Kinematic air viscosity.
+0.000     ShearExp:      Wind shear exponent (1/7 law = 0.143).
+false     UseCm:         Are Cm data included in the airfoil tables?
+true      UseCpmin:      Are Cp,min data included in the airfoil tables?
+30        NumAF:         Number of airfoil files.
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+"Airfoil_Data\FFA_0240.dat"
+-----  I/O Settings  -----------------------------------------------------------
+false     UnfPower:      Write parametric power to an unformatted file?
+false     TabDel:        When generating formatted output (OutForm=True), make output tab-delimited (fixed-width otherwise).
+2         ConvFlag:      For non-converging cases, 0 to output the result, 1 to output nines, 2 to output NaN (safest).
+false     Beep:          Beep on exit.
+true      KFact:         Output dimensional parameters in K (e.g., kN instead on N)
+true      WriteBED:      Write out blade element data to "<rootname>.bed"?
+false     InputTSR:      Input speeds as TSRs?
+false     OutMaxCp:      Output conditions for the maximum Cp?
+mps       SpdUnits:      Wind-speed units (mps, fps, mph)
+-----  Combined-Case Analysis  -------------------------------------------------
+31        NumCases:  Number of cases to run. Enter 0 for parametric analysis
+WS or TSR    RotSpd    Pitch                      Remove following block of lines if NumCases is zero.
+0.500000    5.000000    0.000000 
+0.600000    5.000000    0.000000 
+0.700000    5.000000    0.000000 
+0.800000    5.000000    0.000000 
+0.900000    5.000000    0.000000 
+1.000000    5.326739    0.000000 
+1.100000    5.859413    0.000000 
+1.200000    6.392087    0.000000 
+1.300000    6.924761    0.000000 
+1.400000    7.457435    0.000000 
+1.500000    7.990109    0.000000 
+1.600000    8.522783    0.000000 
+1.700000    9.055457    0.000000 
+1.800000    9.588131    0.000000 
+1.900000    10.120805   0.000000 
+2.000000    10.653479   0.000000 
+2.100000    11.186153   0.000000 
+2.200000    11.719000   0.250000 
+2.300000    11.719000   4.000000 
+2.400000    11.719000   6.000000 
+2.500000    11.719000   7.750000 
+2.600000    11.719000   9.250000 
+2.700000    11.719000   10.500000
+2.800000    11.719000   12.000000
+2.900000    11.719000   13.250000
+3.000000    11.719000   14.250000
+3.100000    11.719000   15.500000
+3.200000    11.719000   16.500000
+3.300000    11.719000   17.500000
+3.400000    11.719000   18.500000
+3.500000    11.719000   19.500000

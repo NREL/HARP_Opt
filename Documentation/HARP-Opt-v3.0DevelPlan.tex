@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+
+\usepackage{setspace}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[section] {placeins}
+\usepackage{hyperref}
+\usepackage{color}
+
+\begin{document}
+
+\title{HARP-Opt v3.0 Development Plan}
+\author{Danny Sale and Michael Lawson}
+
+\maketitle
+
+%\begin{abstract}
+%The abstract text goes here.
+%\end{abstract}
+
+\section{Objective}
+This document describes the development for HARP-Opt version 3.0, which will be released by September 30, 2012. The objectives of this development effort are:
+\begin{list}{$\bullet$}{\leftmargin=3em \itemindent=0em \rightmargin=3em}
+	\item Make the WT-Perf FORTRAN program used by HARP-Opt "callable" as a MATLAB function (note that WT-Perf will still be implemented in FORTRAN). This will remove the need for computationally expensive disk input-output each time WT-Perf is run by HARP-Opt.
+    \item Remove the graphical users interface (GUI) from the HARP-Opt code. Make the code operate using a text input file.
+    \item Develop a stand alone GUI, referred to as HARP-GUI herein, that writes the text input file for HARP-Opt
+    \item Implement a patter search optimization algorithm to improve repeatability of the results
+\end{list}
+These development objectives are described in more detail in the following section.
+
+\section{Discussion of Development Objectives}
+
+\subsection{Interoperate the callable version of WT-Perf into HARP-Opt}
+The current version of HARP-Opt runs WT-Perf as an external program. This requires HARP-Opt to write WT-Perf input files and read WT-Perf output files from disk. This is a computationally expensive operation that contributes significantly to the total HARP-Opt run time.
+ 
+Andrew Platt is currently developing a version of WT-Perf that is callable as a FORTRAN module/function (details are to be determined). \href{http://www.mathworks.com/help/techdoc/matlab_external/f29502.html}{\color{blue}The MathWorks} provides tools to make this possible.
+
+A significant amount of the HARP-Opt code is dedicated to file input-output, so the ability to call WT-Perf from MATLAB should significantly simplify the code.
+
+\subsection{Platform Independence}
+The new release of HARP-Opt should be platform independent (i.e. able to run on any operating system). This will require several things:
+\begin{list}{$\bullet$}{\leftmargin=3em \itemindent=0em \rightmargin=3em}
+    \item Sub-programs that are called by HARP-Opt will need to be compilable from any operating system.
+    \item Anything else?
+\end{list}
+%\end{list}
+
+\subsection{No GUI for the Main HARP-Opt Code!}
+GUIs and graphics of any kind should be completely removed from the code. I have already removed the status bar from the airfoil interpolation operation. The graphical output that is displayed during the optimization run should be replaced with a text based output. This should simplify the code. This will also allow the program to be run from the command line and for batch jobs consisting of many HARP-Opt runs to be on high-performance-computing (HPC) resources.
+
+\subsection{GUI to Write Input Files}
+Develop a HARP-Opt pre-processor GUI (HARP-Opt-Pre, need a better name, but this will work for now) to write an input file for the HARP-Opt code. HARP-Opt-Pre may be developed so it calls the HARP-Opt code, however, the code of the HARP-Opt-Pre will be completely separate from the HARP-Opt code. 
+
+\section{Long Term Development Goals}
+\begin{list}{$\bullet$}{\leftmargin=3em \itemindent=0em \rightmargin=3em}
+    \item \textbf{Open-Source:} Move to all open-source packages. Coding will be in Python and optimization will by in some open-source optimization package, such as \href{http://www.pyopt.org/}{\color{blue}pyOpt} or  \href{http://dakota.sandia.gov/software.html}{\color{blue}DAKOTA}
+    \item \textbf{Fatigue Analysis Capabilities:} Consider fatigue loads in the optimization process. Maybe
+    the easiest way to do this is to consider only the edgewise gravity loads...which we know the frequency
+    from the rotor speed.  Combined with the flow PDF, we should be able to estimate fatigue loads.
+	\item Andrew Ning has some improvements to WT-Perf that will allow for the use of gradient search methods to be used.
+    \item Migrate HARP-Opt to \href{https://github.com/NREL/HARP_Opt}{\color{blue}GitHub} and suggest using \href{http://nvie.com/posts/a-successful-git-branching-model/}{\color{blue}Vincent Driessen's git branching model} for further development and collaboration
+    
+    
+
+
+
+
+\end{list}
+
+\end{document}

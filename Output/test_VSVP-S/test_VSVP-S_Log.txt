@@ -1,0 +1,76 @@
+
+
+ Executing HARP_Opt version 3.00.00_RC1 for case test_VSVP-S.
+
+Interpolating: NACA6_1000.dat to NACA6_0240.dat...
+{Warning: Out of range or non-integer values truncated during conversion to
+character.} 
+{> In parseOptimizationOptions at 24
+  In HARP_Opt at 51} 
+
+Diagnostic information.
+	objective function = @(x0)optFitness(x0,SIM,OPT,TURB,BLADE,ENV,WTP,CAV,state)
+	3 Inequality constraints
+	0 Equality constraints
+	3 Total number of linear constraints
+
+	X0 = [  14.1881 ;  0.59157 ;  1.4238 ;  -1.0744 ;  2.0034 ;  0.89982 ;  0.83312 ;  0.62696 ;  6.2832 ]
+Modified options:
+	options.TolMesh = 1e-006
+	options.TolCon = 1e-006
+	options.TolX = 0.001
+	options.TolFun = 0.001
+	options.TolBind = 1e-006
+	options.MaxIter = 20
+	options.TimeLimit = Inf
+	options.MaxFunEvals = 1000
+	options.MeshContraction = 0.5
+	options.MeshExpansion = 2 
+	options.MeshAccelerator = 'on'
+	options.MeshRotate = 'on'
+	options.InitialMeshSize = 1 
+	options.InitialPenalty = 10
+	options.PenaltyFactor = 100
+	options.ScaleMesh = 'on'
+	options.MaxMeshSize = Inf
+	options.PollMethod = 'gsspositivebasis2n'
+	options.CompletePoll = 'on'
+	options.PollingOrder = 'consecutive'
+	options.CompleteSearch = 'on'
+	options.Display = 'diagnose'
+	options.PlotFcns = {  @psplotbestf @psplotmeshsize @psplotfuncount @psplotbestx }
+	options.PlotInterval = 1 
+	options.Cache = 'on'
+	options.CacheSize = 10000
+	options.CacheTol = 1e-006
+	options.Vectorized = 'off'
+End of diagnostic information.
+
+Iter     f-count          f(x)      MeshSize     Method
+    0        1   -1.76561e+006             1      
+    1       13   -1.77341e+006             2     Successful Poll
+    2       20   -1.78391e+006             4     Successful Poll
+    3       24   -1.78906e+006             8     Successful Poll
+    4       26   -1.78906e+006             4     Refine Mesh
+    5       29   -1.78906e+006             2     Refine Mesh
+    6       35   -1.78906e+006             1     Refine Mesh
+    7       46   -1.78945e+006             2     Successful Poll
+    8       52   -1.78945e+006             1     Refine Mesh
+    9       64   -1.78945e+006           0.5     Refine Mesh
+   10       82   -1.79658e+006             1     Successful Poll
+   11       95   -1.80078e+006             2     Successful Poll
+   12      100   -1.8066e+006             4     Successful Poll
+   13      103   -1.8068e+006             8     Successful Poll
+   14      103   -1.8068e+006             4     Refine Mesh
+   15      108   -1.8068e+006             2     Refine Mesh
+   16      115   -1.80885e+006             4     Successful Poll
+   17      120   -1.80885e+006             2     Refine Mesh
+   18      127   -1.80885e+006             1     Refine Mesh
+   19      142   -1.80985e+006             2     Successful Poll
+   20      149   -1.80985e+006             1     Refine Mesh
+   21      163   -1.81004e+006             2     Successful Poll
+Maximum number of iterations exceeded: increase options.MaxIter.
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_VSVP-S\test_VSVP-S.mat 
+
+HARP_Opt version 3.00.00_RC1 terminated normally for case test_VSVP-S.

@@ -1,0 +1,83 @@
+
+
+ Executing HARP_Opt version 3.00.00_RC1 for case test_FSVP-F.
+
+Interpolating: FFA_1000.dat to FFA_0300.dat...
+Warning: Airfoil files FFA_1000.dat and FFA_0300.dat have Reynolds Numbers of 2.000000 and 1.470000, respectively.
+         These Reynolds numbers do not match as they should, continuing anyways... 
+
+Interpolating: FFA_0300.dat to FFA_0240.dat...
+Warning: Airfoil files FFA_0300.dat and FFA_0240.dat have Reynolds Numbers of 1.470000 and 1.450000, respectively.
+         These Reynolds numbers do not match as they should, continuing anyways... 
+
+{Warning: Out of range or non-integer values truncated during conversion to
+character.} 
+{> In parseOptimizationOptions at 24
+  In HARP_Opt at 51} 
+
+Diagnostic information.
+	objective function = @(x0)optFitness(x0,SIM,OPT,TURB,BLADE,ENV,WTP,CAV,state)
+	7 Inequality constraints
+	0 Equality constraints
+	7 Total number of linear constraints
+
+	X0 = [  9.5169 ;  -3.4905 ;  -3.4905 ;  -5.5369 ;  1.5511 ;  0.69665 ;  0.64503 ;  0.48541 ;  4 ;  8.5 ;  11.4 ]
+Modified options:
+	options.TolMesh = 1e-006
+	options.TolCon = 1e-006
+	options.TolX = 0.001
+	options.TolFun = 0.001
+	options.TolBind = 1e-006
+	options.MaxIter = 20
+	options.TimeLimit = Inf
+	options.MaxFunEvals = 1000
+	options.MeshContraction = 0.5
+	options.MeshExpansion = 2 
+	options.MeshAccelerator = 'on'
+	options.MeshRotate = 'on'
+	options.InitialMeshSize = 1 
+	options.InitialPenalty = 10
+	options.PenaltyFactor = 100
+	options.ScaleMesh = 'on'
+	options.MaxMeshSize = Inf
+	options.PollMethod = 'gsspositivebasis2n'
+	options.CompletePoll = 'on'
+	options.PollingOrder = 'consecutive'
+	options.CompleteSearch = 'on'
+	options.Display = 'diagnose'
+	options.PlotFcns = {  @psplotbestf @psplotmeshsize @psplotfuncount @psplotbestx }
+	options.PlotInterval = 1 
+	options.Cache = 'on'
+	options.CacheSize = 10000
+	options.CacheTol = 1e-006
+	options.Vectorized = 'off'
+End of diagnostic information.
+
+Iter     f-count          f(x)      MeshSize     Method
+    0        1   -1.2194e+006             1      
+    1       15   -1.28141e+006             2     Successful Poll
+    2       25   -1.36445e+006             4     Successful Poll
+    3       32   -1.45318e+006             8     Successful Poll
+    4       37   -1.46352e+006            16     Successful Poll
+    5       40   -1.46352e+006             8     Refine Mesh
+    6       45   -1.46352e+006             4     Refine Mesh
+    7       52   -1.47141e+006             8     Successful Poll
+    8       57   -1.48876e+006            16     Successful Poll
+    9       58   -1.48876e+006             8     Refine Mesh
+   10       61   -1.48876e+006             4     Refine Mesh
+   11       65   -1.49151e+006             8     Successful Poll
+   12       68   -1.49151e+006             4     Refine Mesh
+   13       75   -1.49151e+006             2     Refine Mesh
+   14       85   -1.49905e+006             4     Successful Poll
+   15       92   -1.49905e+006             2     Refine Mesh
+   16      102   -1.50165e+006             4     Successful Poll
+   17      106   -1.50165e+006             2     Refine Mesh
+   18      112   -1.50165e+006             1     Refine Mesh
+   19      121   -1.52252e+006             2     Successful Poll
+   20      127   -1.52591e+006             4     Successful Poll
+   21      131   -1.52591e+006             2     Refine Mesh
+Maximum number of iterations exceeded: increase options.MaxIter.
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSVP-F\test_FSVP-F.mat 
+
+HARP_Opt version 3.00.00_RC1 terminated normally for case test_FSVP-F.

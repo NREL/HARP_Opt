@@ -1,0 +1,178 @@
+
+
+ Executing HARP_Opt version 3.00.00_RC1 for case test_FSFP_MOGA.
+
+{Warning: Out of range or non-integer values truncated during conversion to character.} 
+{> In <a href="matlab: opentoline('C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Source\parseOptimizationOptions.m',24,1)">parseOptimizationOptions at 24</a>
+  In <a href="matlab: opentoline('C:\Users\Danny\Dropbox\GitHub\HARP_Opt\HARP_Opt.m',51,1)">HARP_Opt at 51</a>
+  In <a href="matlab: opentoline('C:\Users\Danny\Dropbox\GitHub\HARP_Opt\batch_analysis.m',51,1)">batch_analysis at 51</a>} 
+
+Diagnostic information.
+	Fitness function = @(x0)optFitness(x0,SIM,OPT,TURB,BLADE,ENV,WTP,CAV,state)
+	Number of variables = 11
+	Number of objectives = 2
+	8 Inequality constraints
+	0 Equality constraints
+	8 Total number of linear constraints
+
+Modified options:
+	options.PopulationSize = 40
+	options.EliteCount = 1 
+	options.CrossoverFraction = 0.4
+	options.ParetoFraction = 0.33
+	options.Generations = 20
+	options.TolFun = 0.001
+	options.InitialPopulation = [  27.1199 -0.301884 -0.342643 -4.29051 -5.48215 1.99959 1.60281 0.605829 0.605827 0.497603 11.4 ;  37.5357 37.5357 37.5357 37.5357 37.5357 2.85264 2.85264 2.85264 2.85264 2.85264 11.655 ;  26.5997 26.5997 26.5997 26.5997 26.5997 2.19866 2.19866 2.19866 2.19866 2.19866 10.124 ;  19.9329 19.9329 19.9329 19.9329 19.9329 1.79999 1.79999 1.79999 1.79999 1.79999 9.19061 ;  -2.1991 -2.1991 -2.1991 -2.1991 -2.1991 0.4765 0.4765 0.4765 0.4765 0.4765 6.0921 ;  -2.2003 -2.2003 -2.2003 -2.2003 -2.2003 0.47642 0.47642 0.47642 0.47642 0.47642 6.092 ;  -7.0958 -7.0958 -7.0958 -7.0958 -7.0958 0.18367 0.18367 0.18367 0.18367 0.18367 5.4066 ;  33.3088 33.3088 33.3088 33.3088 33.3088 2.59987 2.59987 2.59987 2.59987 2.59987 11.0632 ;  20.0558 20.0558 20.0558 20.0558 20.0558 1.80733 1.80733 1.80733 1.80733 1.80733 9.20781 ;  25.4036 25.4036 25.4036 25.4036 25.4036 2.12714 2.12714 2.12714 2.12714 2.12714 9.95651 ;  -8.9708 -8.9708 -8.9708 -8.9708 -8.9708 0.071548 0.071548 0.071548 0.071548 0.071548 5.1441 ;  38.4955 38.4955 38.4955 38.4955 38.4955 2.91003 2.91003 2.91003 2.91003 2.91003 11.7894 ;  31.6221 31.6221 31.6221 31.6221 31.6221 2.499 2.499 2.499 2.499 2.499 10.8271 ;  0.61696 0.61696 0.61696 0.61696 0.61696 0.64489 0.64489 0.64489 0.64489 0.64489 6.4864 ;  -0.90875 -0.90875 -0.90875 -0.90875 -0.90875 0.55366 0.55366 0.55366 0.55366 0.55366 6.2728 ;  -0.82977 -0.82977 -0.82977 -0.82977 -0.82977 0.55838 0.55838 0.55838 0.55838 0.55838 6.2838 ;  5.2121 5.2121 5.2121 5.2121 5.2121 0.91968 0.91968 0.91968 0.91968 0.91968 7.1297 ;  16.2378 16.2378 16.2378 16.2378 16.2378 1.57902 1.57902 1.57902 1.57902 1.57902 8.6733 ;  11.5973 11.5973 11.5973 11.5973 11.5973 1.30152 1.30152 1.30152 1.30152 1.30152 8.02362 ;  4.5615 4.5615 4.5615 4.5615 4.5615 0.88078 0.88078 0.88078 0.88078 0.88078 7.0386 ;  20.5926 20.5926 20.5926 20.5926 20.5926 1.83944 1.83944 1.83944 1.83944 1.83944 9.28297 ;  -3.0253 -3.0253 -3.0253 -3.0253 -3.0253 0.42709 0.42709 0.42709 0.42709 0.42709 5.9765 ;  4.6072 4.6072 4.6072 4.6072 4.6072 0.88351 0.88351 0.88351 0.88351 0.88351 7.045 ;  8.3181 8.3181 8.3181 8.3181 8.3181 1.1054 1.1054 1.1054 1.1054 1.1054 7.5645 ;  12.8035 12.8035 12.8035 12.8035 12.8035 1.37365 1.37365 1.37365 1.37365 1.37365 8.19249 ;  29.2588 29.2588 29.2588 29.2588 29.2588 2.35768 2.35768 2.35768 2.35768 2.35768 10.4962 ;  -0.016311 -0.016311 -0.016311 -0.016311 -0.016311 0.60702 0.60702 0.60702 0.60702 0.60702 6.3977 ;  15.7117 15.7117 15.7117 15.7117 15.7117 1.54756 1.54756 1.54756 1.54756 1.54756 8.59964 ;  19.6207 19.6207 19.6207 19.6207 19.6207 1.78132 1.78132 1.78132 1.78132 1.78132 9.1469 ;  -7.6775 -7.6775 -7.6775 -7.6775 -7.6775 0.14889 0.14889 0.14889 0.14889 0.14889 5.3252 ;  20.3772 20.3772 20.3772 20.3772 20.3772 1.82656 1.82656 1.82656 1.82656 1.82656 9.25281 ;  -1.4738 -1.4738 -1.4738 -1.4738 -1.4738 0.51987 0.51987 0.51987 0.51987 0.51987 6.1937 ;  -6.7474 -6.7474 -6.7474 -6.7474 -6.7474 0.2045 0.2045 0.2045 0.2045 0.2045 5.4554 ;  37.4443 37.4443 37.4443 37.4443 37.4443 2.84717 2.84717 2.84717 2.84717 2.84717 11.6422 ;  38.2816 38.2816 38.2816 38.2816 38.2816 2.89724 2.89724 2.89724 2.89724 2.89724 11.7594 ;  30.4199 30.4199 30.4199 30.4199 30.4199 2.42711 2.42711 2.42711 2.42711 2.42711 10.6588 ;  5.2307 5.2307 5.2307 5.2307 5.2307 0.9208 0.9208 0.9208 0.9208 0.9208 7.1323 ;  -5.1164 -5.1164 -5.1164 -5.1164 -5.1164 0.30204 0.30204 0.30204 0.30204 0.30204 5.6837 ;  24.2117 24.2117 24.2117 24.2117 24.2117 2.05586 2.05586 2.05586 2.05586 2.05586 9.78963 ;  12.0076 12.0076 12.0076 12.0076 12.0076 1.32606 1.32606 1.32606 1.32606 1.32606 8.08107 ]
+	options.CreationFcn = @gacreationlinearfeasible
+	options.FitnessScalingFcn = @fitscalingrank
+	options.SelectionFcn = @selectionuniform
+	options.CrossoverFcn = @crossoverheuristic
+	options.Display = 'diagnose'
+	options.PlotFcns = { @gaplotpareto }
+	options.OutputFcns = @(options,state,flag)outputFun_custom(options,state,flag,BLADE,CAV,ENV,OPT,SIM,TURB,WTP)
+End of diagnostic information.
+
+                           Average            Average
+Generation   f-count    Pareto distance    Pareto spread
+    1         80          0.119392           0.28234
+    2        120          0.102902          0.999997
+    3        160          0.103301          0.999993
+    4        200         0.0919816          0.196726
+    5        240         0.0604004          0.111741
+    6        280         0.0453266          0.102116
+    7        320          0.090028          0.999963
+    8        360         0.0826129          0.999927
+    9        400         0.0932459          0.999974
+   10        440         0.0503637          0.999962
+   11        480           0.06762          0.998412
+   12        520         0.0507966          0.999963
+   13        560         0.0704833          0.137978
+   14        600         0.0864456          0.999631
+   15        640         0.0590938          0.118414
+   16        680         0.0682413           0.13003
+   17        720         0.0618306          0.137542
+   18        760          0.053061          0.125282
+   19        800          0.040464         0.0999793
+   20        840         0.0524703          0.128414
+Optimization terminated: maximum number of generations exceeded.
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_1.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_2.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_3.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_4.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_5.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_6.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_7.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_8.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_9.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_10.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_11.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_12.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_13.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_14.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_15.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_16.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_17.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_18.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_19.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_20.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_21.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_22.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_23.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_24.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_25.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_26.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_27.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_28.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_29.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_30.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_31.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_32.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_33.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_34.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_35.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_36.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_37.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_38.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_39.mat 
+
+All data in HARP_Opt workspace saved to MAT-file: 
+ C:\Users\Danny\Dropbox\GitHub\HARP_Opt\Output\test_FSFP_MOGA\test_FSFP_MOGA_Pareto_40.mat 
+
+HARP_Opt version 3.00.00_RC1 terminated normally for case test_FSFP_MOGA.

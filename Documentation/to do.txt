@@ -1,0 +1,68 @@
+A general list of things to-do, and ideas that might be useful to the project:
+
+
+HARP_Opt v3.0.0 (this is the first GitHub Tag)
+(*) make sure GitHub account is setup properly for easier collaborative development
+	(*) suggest according to Vincent Driessen's git branching model:
+		http://nvie.com/posts/a-successful-git-branching-model/
+(*) probably could need one more pass through the source code to combine functions 
+	into a single file where appropriate
+(*) make sure there are no more unintended debug messages printed to the console.  
+	Maybe, suppress ALL output for parallel runs...otherwise overlapping text is 
+	printed to the console from each process
+	(*) OR...create an alternate output method for parallel runs?
+(*) single objective optimization does not yet produce the plots in outputFun_custom.m
+(*) unify built-in documentation inside the input files (some files may have slightly 
+	different descriptions of the input parameters)
+(*) add some error checking on the user inputs.  Matlab has ASSERT statements
+	that would be best suited for this
+(*) [bug] when compiled, the Multi-Objective Genetic Algorithm gives some errors...
+	it works fine in the non-compiled version though.  This error appears when
+	changing 'SelectionFcn' to anything other than @selectionuniform ???
+
+______     _                    _    _            _            
+|  ___|   | |                  | |  | |          | |           
+| |_ _   _| |_ _   _ _ __ ___  | |  | | ___  _ __| | __        
+|  _| | | | __| | | | '__/ _ \ | |/\| |/ _ \| '__| |/ /        
+| | | |_| | |_| |_| | | |  __/ \  /\  / (_) | |  |   <   _ _ _ 
+\_|  \__,_|\__|\__,_|_|  \___|  \/  \/ \___/|_|  |_|\_\ (_|_|_)
+                                                               
+
+Documentation
+(*) compile a FAQ list from email and forum archives...post to GitHub wiki/issues
+(*) implement Doxygen for MATLAB to automatically create documentation and UML 
+	type diagrams...Doxygen should be able to create huge amounts of documentation 
+	automatically...but this relies on properly documented/formatted source code...
+	(*) several Doxygen for MATLAB implmentations already exist...see File Exchange
+
+HARP_Opt v3.1.0 and beyond...
+
+(*) fix the horrible thickness distributions (prone to large curvature which is bad)
+	this problem can be fixed by careful user inputs, but we need a more foolproof way:
+	(*) define the dimensional thickness by Bezier/Akima curve first, derive the 
+		non-dim thickness afterwards...this should fix the problem nicely and provide
+		better structural designs
+(*) add Akima curves for easier/better handling of constraints, and will allow users
+	to import existing blade designs into HARP_Opt (as initial seeds)
+(*) allow seeding of the initial point in the initial population (do this like 
+	in CoBlade v1.30+)
+(*) to make an simple GUI, use uigetfile() to select input file(s) or to write
+	default example files
+(*) add NREL 5MW example and Sandia 100MW (other more important reference models?)
+(*) option to save figure as image files (or can save figure histories to later 
+	create movies or GIFS)
+
+
+(*) add framework for multiple objectives via multiplicative penalty factors 
+	(like in Co-Blade)
+(*) similar to CoBlade GMREC version, allow stochastic variation of aerodynamic design variables
+(*) fully coupled to Co-Blade after move to GitHub (GMREC function version)	
+(*) add highlights from Julio's thesis on HARP_Opt
+	(*) generator coupling
+	(*) constraints on angle of attack (stalling)
+	(*) additional optimization algorithms (mostly of hueristic type)
+	(*) others ...
+(*) compile windows/linux versions of WT_Perf v3.06.00 w/ stall delay models built-in
+	(*) instead of maintaining linux binaries...
+        alterntalively you could make sure that Windows verions can work under WINE in linux?
+(*) use CCBlade instead of WT_Perf (or does CCBlade already replace HARP_Opt entirely?)
