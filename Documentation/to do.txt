@@ -47,22 +47,17 @@ HARP_Opt v3.1.0 and beyond...
 (*) allow seeding of the initial point in the initial population (do this like 
 	in CoBlade v1.30+)
 (*) to make an simple GUI, use uigetfile() to select input file(s) or to write
-	default example files
+	default example files.  pyTurbSim has a good example of something similar.
 (*) add NREL 5MW example and Sandia 100MW (other more important reference models?)
-(*) option to save figure as image files (or can save figure histories to later 
-	create movies or GIFS)
-
-
-(*) add framework for multiple objectives via multiplicative penalty factors 
-	(like in Co-Blade)
+(*) option to save figure to image files rather than draw a window (or can save 
+	figure histories to later create movies or GIFS)
+(*) add framework for multiple objectives via multiplicative or additive penalty factors 
+	(kinda like in Co-Blade)
 (*) similar to CoBlade GMREC version, allow stochastic variation of aerodynamic design variables
 (*) fully coupled to Co-Blade after move to GitHub (GMREC function version)	
-(*) add highlights from Julio's thesis on HARP_Opt
-	(*) generator coupling
-	(*) constraints on angle of attack (stalling)
-	(*) additional optimization algorithms (mostly of hueristic type)
-	(*) others ...
 (*) compile windows/linux versions of WT_Perf v3.06.00 w/ stall delay models built-in
 	(*) instead of maintaining linux binaries...
         alterntalively you could make sure that Windows verions can work under WINE in linux?
-(*) use CCBlade instead of WT_Perf (or does CCBlade already replace HARP_Opt entirely?)
+(*) add option to use CCBlade instead of WT_Perf
+(*) add highlights from thesis Julio Xavier Vianna Neto "WIND TURBINE BLADE 
+	GEOMETRY DESIGN BASED ON MULTI-OBJECTIVE OPTIMIZATION USING METAHEURISTICS"
