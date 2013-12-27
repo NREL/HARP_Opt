@@ -1,5 +1,13 @@
 HARP_Opt v3.0.0 (Release Candidate 1)
 ========
+     _   _   ___  ____________            _____       _   
+    | | | | / _ \ | ___ \ ___ \          |  _  |     | |  
+    | |_| |/ /_\ \| |_/ / |_/ /          | | | |_ __ | |_ 
+    |  _  ||  _  ||    /|  __/           | | | | '_ \| __|
+    | | | || | | || |\ \| |              \ \_/ / |_) | |_ 
+    \_| |_/\_| |_/\_| \_\_|               \___/| .__/ \__|
+                                 ______        | |        
+                                |______|       |_|        
 
 [HARP_Opt](http://wind.nrel.gov/designcodes/simulators/HARP_Opt/): An optimization tool for wind and water turbines.
 
