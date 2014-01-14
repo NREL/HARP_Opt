@@ -1,0 +1,25 @@
+HARP_Opt (Horizontal Axis Rotor Performance Optimization)
+Copyright 2014 Danny Sale and Michael Lawson
+
+This product contains source code from HARP-Opt v2.0
+originally developed by Danny Sale at the National
+Renewable Energy Laboratory's National Wind Technology
+Center. See http://www.nrel.gov/ and 
+http://wind.nrel.gov/designcodes/simulators/HARP_Opt.
+
+The WT_Perf_v3.05.00 was developed at the National Renewable
+Energy Laboratory's National Wind Technology Center. See
+http://wind.nrel.gov/designcodes/simulators/wtperf/
+
+Several libraries developed by external parties are used by
+HARP_Opt. License information for these libraries is as
+follows:
+
+/Source/xlwrite - BSD 2-clause license - http://www.mathworks.com/matlabcentral/fileexchange/38591-xlwrite-generate-xlsx-files-without-excel-on-maclinuxwin
+
+./Source/psopt - BSD 2-clause license - http://www.mathworks.com/matlabcentral/fileexchange/25986-another-particle-swarm-toolbox/all_files
+
+./Source/fminsearchbnd - BSD 2-clause license - http://www.mathworks.com/matlabcentral/fileexchange/8277-fminsearchbnd-fminsearchcon/content/FMINSEARCHBND/demo/html/fminsearchbnd_demo.html
+
+./Source/akima - BSD 2-clause license - http://www.mathworks.com/matlabcentral/fileexchange/1814-akima-interpolation
+
