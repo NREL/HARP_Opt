@@ -5,7 +5,7 @@ The code optimizes a rotor's performance for steady and uniform flows (no sheare
 
 HARP_Opt can function as a single- or multiple-objective optimization code. The primary optimization objective is to maximize the turbine's annual energy production (AEP). Annual energy production is calculated using a Rayleigh, Weibull, or user-defined flow distribution. Maximum power is bounded, and maximum power point tracking (MPPT) is a combined objective with AEP. For hydrokinetic turbines, additional constraints are defined such that cavitation will not occur. An additional objective can be activated, in which HARP_Opt performs a structural optimization to minimize the blade mass. For the structural analysis, the blade is modeled as a thin shell of bulk isotropic material, and the blade mass is minimized using a maximum allowable strain as the constraint. Maximizing energy production and minimizing blade mass are conflicting objectives, thus HARP_Opt will identify the set of Pareto optimal solutions. To meet these objectives, HARP_Opt calculates the optimal blade shape (twist, chord, and airfoil/hydrofoil distributions) and optimal control of the rotor speed and blade pitch.
 
-The HARP_Opt project was funded by the US Department of Energy [Water Power Program](http://www1.eere.energy.gov/water/). Code developemnt and testing was performed at the NREL and the University of Tennessee.
+The HARP_Opt project was funded by the US Department of Energy [Water Power Program](http://www1.eere.energy.gov/water/). Code development and testing was performed at the NREL and the University of Tennessee.
 
 #Download
 Current Version:
