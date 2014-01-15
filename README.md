@@ -1,5 +1,5 @@
 #Introduction
-HARP_Opt (**H**orizontal **A**xis **R**otor **P**erformance **Opt**imization) utilizes MATLAB's optimization algorithms and the National Renewable Energy Laboratory's (NREL) [WT-Perf](http://wind.nrel.gov/designcodes/simulators/wtperf/) blade element momentum (BEM) code to design axial-flow wind and water (i.e. hydrokinetic) turbine rotors.
+HARP_Opt (**H**orizontal **A**xis **R**otor **P**erformance **Opt**imization) utilizes MATLAB's optimization algorithms and the National Renewable Energy Laboratory's [WT-Perf](http://wind.nrel.gov/designcodes/simulators/wtperf/) blade element momentum (BEM) code to design axial-flow wind and water (i.e. hydrokinetic) turbine rotors.
 
 The code optimizes a rotor's performance for steady and uniform flows (no sheared or yawed flows). A variety of rotor control configurations can be designed using HARP_Opt, including fixed or variable rotor speed and fixed or variable blade pitch configuration and blades with circular or non-circular roots are supported.
 
