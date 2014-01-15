@@ -1,42 +1,32 @@
-HARP_Opt v3.0.0 (Release Candidate 1)
-========
-     _   _   ___  ____________            _____       _   
-    | | | | / _ \ | ___ \ ___ \          |  _  |     | |  
-    | |_| |/ /_\ \| |_/ / |_/ /          | | | |_ __ | |_ 
-    |  _  ||  _  ||    /|  __/           | | | | '_ \| __|
-    | | | || | | || |\ \| |              \ \_/ / |_) | |_ 
-    \_| |_/\_| |_/\_| \_\_|               \___/| .__/ \__|
-                                 ______        | |        
-                                |______|       |_|        
+#Introduction
+HARP_Opt (**H**orizontal **A**xis **R**otor **P**erformance **Opt**imization) utilizes MATLAB's optimization algorithms and the [National Renewable Energy Laboratory's](http://www.nrel.gov) [WT-Perf](http://wind.nrel.gov/designcodes/simulators/wtperf/) blade element momentum (BEM) code to design axial-flow wind and water (i.e. hydrokinetic) turbine rotors.
 
-[HARP_Opt](http://wind.nrel.gov/designcodes/simulators/HARP_Opt/): An optimization tool for wind and water turbines.
+The code optimizes a rotor's performance for steady and uniform flows (no sheared or yawed flows). A variety of rotor control configurations can be designed using HARP_Opt, including fixed or variable rotor speed and fixed or variable blade pitch configuration and blades with circular or non-circular roots are supported.
 
-## Current Maintainers
-* [Danny Sale (University of Washington)](mailto:dsale@uw.edu)
-* [Michael Lawson (National Renewable Energy Laboratory)](mailto:Michael.Lawson@nrel.gov)
+HARP_Opt can function as a single- or multiple-objective optimization code. The primary optimization objective is to maximize the turbine's annual energy production (AEP). Annual energy production is calculated using a Rayleigh, Weibull, or user-defined flow distribution. Maximum power is bounded, and maximum power point tracking (MPPT) is a combined objective with AEP. For hydrokinetic turbines, additional constraints are defined such that cavitation will not occur. An additional objective can be activated, in which HARP_Opt performs a structural optimization to minimize the blade mass. For the structural analysis, the blade is modeled as a thin shell of bulk isotropic material, and the blade mass is minimized using a maximum allowable strain as the constraint. Maximizing energy production and minimizing blade mass are conflicting objectives, thus HARP_Opt will identify the set of Pareto optimal solutions. To meet these objectives, HARP_Opt calculates the optimal blade shape (twist, chord, and airfoil/hydrofoil distributions) and optimal control of the rotor speed and blade pitch.
 
-## User Information
-If you came to this page directly without going through the NWTC Information Portal, **we would appreciate if you could [report your user information](http://wind.nrel.gov/designcodes/simulators/HARP_Opt/downloaders/HARP_Opt_github_redirect.html) before cloning the repository**.  We use this information in order to allocate resources for supporting our software, and to notify users of critical updates.
+The HARP_Opt project was funded by the US Department of Energy [Water Power Program](http://www1.eere.energy.gov/water/). Code developemnt and testing was performed at the NREL and the University of Tennessee.
 
-## Prerequisites
-**Users:**
+#Download
+Current Version:
+[v3.0.0 (Release Candidate 1)](https://github.com/NREL/HARP_Opt)
 
-* [Matlab Component Runtime v7.09](http://wind.nrel.gov/designcodes/miscellaneous/MatLab_MCRInstaller/)
+Previous Versions:
+[v2.0.0](http://wind.nrel.gov/designcodes/simulators/HARP_Opt/)
 
-**Developers:**
+#Installing and Running HARP_Opt
+See the [HARP-Opt GitHub Wiki](https://github.com/NREL/HARP_Opt/wiki/).
 
-* C compiler
-* Fortran compiler
-* [WT_Perf](http://wind.nrel.gov/designcodes/simulators/wtperf/)
-* [NWTC_Library](http://wind.nrel.gov/designcodes/miscellaneous/nwtc_subs/) 
-* Matlab (optional toolboxes: Optimization, Global Optimization, Parallel Computing)
+#Documentation
+Documentation for v3.0.0 is currently under development
 
-## Run Examples
+#Current Code Maintainers
+* [Danny Sale](mailto:dsale@uw.edu) (University of Washington)
+* [Michael Lawson](mailto:Michael.Lawson@nrel.gov) (National Renewable Energy Laboratory)
 
-From the Matlab prompt (compatible with Linux, Windows, and Mac), 
-
-    $ HARP_Opt input_filename.inp
-
-or from the Windows command prompt (using the compiled version)
-
-    $ HARP_Opt_windows.exe input_filename.inp
+#Project Contributors
+* Danny Sale (University of Washington)
+* Michael Lawson (National Renewable Energy Laboratory)
+* Jason Jonkman (National Renewable Energy Laboratory)
+* David Maniaci (Sandia National Laboratories)
+* Marshall Buhl (National Renewable Energy Laboratory)
