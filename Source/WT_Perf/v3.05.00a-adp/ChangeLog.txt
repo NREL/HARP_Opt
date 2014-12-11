@@ -1,0 +1,611 @@
+			WT_Perf Change Log
+			------------------
+Ancient history:
+
+DarkPast - PROP created by Aerovironment Inc.
+04/01/85 - PROPPC ported to the PC by J. David Kocurek of Computational
+	    Methodology Associates.
+Later    - Modified for use by SERI/NREL by Jim Tangler.
+1994     - Ported to SGI and slightly improved by Marshall Buhl of
+	    NREL-NWTC.
+
+
+1.00  25-Apr-1996  M. Buhl
+ Modified for variable speed.  Many utility routines were stolen from
+      some of Buhl's other programs.  All propeller code was removed.
+ Renamed to WT_Perf.  Input file was reorganized.
+
+1.10  29-Apr-1996  M. Buhl
+ Modified to have which variables should be output as an input parameter.
+
+1.20  10-May-1996   M. Buhl
+ More clean-up.
+ Fixed old bug where tip loss was not calculated if the hub radius was zero.
+ Improved calculation of local wind shear by including the effect of shaft tilt
+      and precone.
+ Fixed old bug where local Q was calculated using tip-speed ratio instead of
+      local speed ratio.
+ Added ability to input metric and/or dimensional data.
+ Rederived the equations for the rotor coefficients and dimensional data and
+      changed the algorithms.
+ Added date and time stamping of output files.
+
+1.30  13-May-1996   M. Buhl
+ More clean-up.
+ I fixed up the metric and dimensional versions.
+ I renamed the ratio variable to not have the ratio in them (e.g., I renamed
+      HH_RATIO to HUB_HT).
+
+1.40  14-May-1996   M. Buhl
+ I rewrote the post-stall routines.
+ I moved many one-time calculations to a new routine (SETUP_V) and stored them
+      in a new common block and created the new include file (viterna.inc).
+ I modified the Viterna calculations so they use the stall Cl and Cd instead of
+      the last ones in the tables--this was an old bug.
+ I cleaned up a few minor things.
+
+1.50  14-May-1996   M. Buhl
+ Added option for tab-delimited and fixed-width output.
+
+1.51  15-May-1996   M. Buhl
+ Fixed some minor bugs.
+
+1.52  30-May-1996   M. Buhl
+ Fixed a bug in setting the minimum/maximum number of sectors.
+
+1.60  07-Jun-1996   M. Buhl
+ I reordered the input file.
+
+1.61  10-Jun-1996   M. Buhl
+ I broke out the system-specific routines to sys_*.f for easy porting.
+ I cleaned up some minor problems to do with porting to LF90.
+ I fixed it so there are no newlines between segments of blade element data if
+      there is only one section.
+ I renamed STRLEN to STR_LEN and moved it  into the sys_*.f files.  For LF90, I
+      use it to call LEN_TRIM.
+ I moved GETARG to the sys_*.f files and renamed it GET_ARG.  I had to create
+      one using GETCL for LF90.  I also needed to create a PARSE routine to
+      break the command line into tokens (words).  I put it in sys_pcl.f.
+
+2.00  17-Jun-1996   M. Buhl
+ I added the ECN 3D effects for Cl and Cd.
+ I moved MAX_ITER from a compiled parameter to an input variable.
+ I fixed it so that when we fail to converge, we actually see -999.99 instead of
+      some other number.
+ I added one digit of precision to the dimensional output variables.
+ I created a new program PROP2WTP that converts PROP files to WT_Perf files.  It
+      uses the same include files and also the gen_use and sys_* files as
+      WT_Perf.  This should make it easier for folks to use this new program.
+
+2.01  03-Oct-1996   M. Buhl
+ I changed the FORMAT statement used to output I_SHFT so it was compatible with
+      integers.
+ I put in a test to make sure N_SEG doesn't exceed MAX_SEG (Thanks for finding
+      that one, Palmer!).  I added
+
+2.02  26-Nov-1996   M. Buhl
+ Palmer Carlin discovered that for high tip speed ratios and large pitch angles,
+      the turbine acts like a fan and the angle of attack becomes a fairly large
+      negative number.  If the lift and drag tables do not cover the potential
+      range, the interpolation routine would return silly values. I changed
+      GET_COEF so that it prints an error message and stops.
+
+2.03  08-May-1997   M. Buhl
+ I eliminated the test for alpha being less than alpha_stall for the loss
+      calculations.
+ I eliminated the dummy argument N_SEG from PS_LIFT and PS_DRAG.
+ I modified PRAND so that I don't waste time on calculations when the losses
+      will be very small.
+ I simplified the calculation of the advanced brake model.
+
+2.04  30-May-1997   M. Buhl
+ I decided that the thrust and torque per unit length for the blade element data
+      should not be multiplied by the number of blades.  It is now output as per
+      blade.
+
+2.05  17-Nov-1997   M. Buhl
+ I changed the date format to use dd-mmm-ccyy.
+ I also changed a lot of stuff to use F90 intrinsics.
+ I ported to the DEC Visual Fortran compiler.
+ Peter Schaffarczyk helped me find a way to make the code friendlier. If one
+      entered a hub height so small the blade struck the ground, then the shear
+      equations would blow up.  I put in a check to make sure the hub was high
+      enough during the input phase.
+
+2.06  06-Feb-1998   M. Buhl
+ I ported WT_Perf to Sun Fortran 90 and may a few minor changes.
+
+2.07  20-Aug-1998   M. Buhl
+ I changed the axial induction-factor calculation to eliminate applying the
+      tip-loss correction factor twice.  The new equation is 4aF(1-a)=Ch instead
+      of 4aF(1-aF)=Ch.
+ I also modified the use of Glauert's empirical formula so that the coefficients
+      of the quadratic are now a function of the losses.
+ I also eliminated the IND_FACT routine and simplified the calculation of both
+      the inducation factors (IF) so that the new IF is the average of the old
+      and the proposed IFs.
+ I also changed the IF iteration tolerance to 1e-7 and changed it so both a and
+      a' use the same tolerance.  The old version made the a' 10 times harder to
+      converge.
+ I added the program name,  version, and version date to the blade element
+      output files.
+
+2.08  16-Dec-1998   M. Buhl
+ I modified INT2LSTR to compute the length of the resulting string.
+
+2.10	23-Jun-1999  M. Buhl
+ I modified the induction-factor calculations so that they used the drag terms.
+      This is how BLADED does it.
+
+2.11	07-Oct-1999  M. Buhl
+ I modified the output format for the Cp data when generating column-delimited
+      files so that the numbers line up correctly.
+
+2.12	08-Oct-1999  M. Buhl
+ I modified the induction convergence so it uses a method similar to AeroDyn to
+      prevent jumping over the solution.
+
+2.20	25-Oct-2000  M. Buhl
+ I removed the drag terms from the induction equations that I had added in
+      v2.10.
+ I cleaned out some alpha-code left over from the code runoff.
+
+2.21	25-Jan-2001  M. Buhl
+ Jason Jonkman found that the pitch values listed in the output file did not
+      agree with that in the input file.  For some unknown reason, I was adding
+      the tip twist to the pitch value for the output.
+
+3.00a-mlb  17-Nov-2003  M. Buhl
+ I rewrote the code in Fortran 95.
+ I made some changes to the input file and disabled all the 3D stuff.
+ I fixed it so it used the standard NWTC routines.  I made very few changes to
+      the algorithms.  I got identical answers for the original test case.
+
+3.00b-mlb  18-Mar-2004  M. Buhl
+ I eliminated the old style of including airfoil tables in the main input file
+      and changed it so it uses AeroDyn input files.
+ I also created a new style for the airfoil tables and the code reads both
+      styles.  The airfoil-reading routines were put into NWTC_Subs.
+ I added Reynolds number interpolation.
+ I reordered the main input file some.
+ I modified the induction equations so that the user can choose whether to
+      include the drag terms or not.
+ I added the option to decide whether to use the old PROP induction or
+      the newer PROPX/AeroDyn algorithm.  I added the PROPX algorithm.
+ I moved the output sections of the input file to the end of the file.
+ I fixed the flap-load equation to compute it at the hub radius and to account
+      for the fact that rotor could be preconed.
+ I replaced the equations to calculate the element Ct, Cp, and Cq with equations
+      Pat Moriarty gave me.  It improved the correlation to the rotor Cp.
+ I added the total losses to the element file.
+
+3.00c-mlb  22-Apr-2004  M. Buhl
+ I added the variable "Yaw" to the input file and modified
+      WTP_Subs.f90\GetData() to read it.  I modified the calculation for the
+      minimum number of sectors to also check for yaw error.  I modified the
+      VWndNorm and VWndTang calculations to account for yaw.
+ I created new non-dimensional variables for hub radius and hub height so that
+      it is clear in the code which is being used at any given time and to avoid
+      repetetive multiplications.
+ I rederived the equations for the normal and tangential wind speed and used
+      them in WTP_Subs.f90\GetVel().
+
+3.00d-mlb  22-Apr-2004  M. Buhl
+ I changed the blade-element data to mimic what we plan to make AeroDyn look
+      like in the future and allowed variably spaced elements.
+ I modified it so that only unique airfoil tables are read in as is done in
+      AeroDyn.
+
+3.00e-mlb  12-May-2004  M. Buhl
+ I changed all occurances of Rn to Re to use the most-common notation for
+      Reynolds number.
+ I eliminated most calling arguments on WTP_Subs.f90\GetVel() because they
+      conflicted with the ones in the WTP_Data() module.  I retained only
+      VWndNorm.
+ I got rid of the old speed stepping logic because it had been replaced long ago
+      by the DO counters.  It was sometimes causing the last step to be skipped.
+
+3.00f-mlb  15-Jun-2004  M. Buhl
+ I added the new combined-case parameter-specification format.  I moved almost
+      all of the analysis and I/O from the main program to subroutines in
+      WTP_Subs.f90.  They are CombCase, ParmAnal (the old method), and RotAnal,
+      which is the inner part of the analysis (covers all sectors and segments).
+       Many variables were moved from the main program to WTP_Mods.  I had to
+      make changes to the output section of the input file.
+ I added the new KFact flag to the output section of the input file.  This flag
+      allows the users to say if (s)he wants output in K.  For example, thrust
+      would be in kN instead of N.
+ I added an extra digit of precision to the output.
+
+3.10a-mlb  22-Jun-2004  M. Buhl
+ I added Cq as an output parameter for combined-case analyses.
+
+3.10b-mlb  02-Jul-2004  M. Buhl
+ I modified the code to work with the new version of the NWTC library
+      (v1.00a-mlb).
+
+3.01.01 24-Apr-2006  M. Buhl
+ I converted the program to use the new NWTC Library.
+   -- I eliminated the Pi constants from WTP_Mods.f90\Parameters.
+   -- I replace all USE statements with USE NWTC_Library.
+   -- I changed the calls to the UserTime function to use the intrinsic
+      CPU_TIME() subroutine.
+   -- I replace the variable Rho with AirDens because that was done in the
+      library.
+
+3.01.02a-mlb 24-July-2006  M. Buhl
+ Paul Kreiner found a case that caused the angle of attack to become NaN, which
+      then resulted in an error in the coefficient lookup.  The problem was not
+      easily tracked, as it did not occur when run in Debug mode or when some of
+      the pertinent variables were printed to the screen.  I made the problem go
+      away by limiting the proposed new value of the induction to the range
+      [-1:5].  I added one line to WTP_Subs.f90\Ind_Prop() to fix it.
+
+3.02.00a-mlb 03-August-2006  M. Buhl
+ Rewrote Ind_Prop to use Newton-Raphson for the iteration.
+ Replaced the parameter, Epsilon, with the intrinsic function, Epsilon().
+ Replaced the IndProp input flag with the IndType switch to enable turning off
+      all induction calculations.
+
+3.02.00b-mlb 22-August-2006  M. Buhl
+ I completely redid how Ind_Prop works.  It now tries to find a zero crossing
+      for the error function before trying Newton-Raphson.
+ I eliminated the PROPX and Classic Brake State options, as I see little use for
+      them.  This included eliminating the third option (=2) from IndType and
+      the AdvBrake flag from the input file.
+
+3.02.00c-mlb 24-August-2006  M. Buhl
+ I added the OutNines flag to the input file.  If set, unconverged solutions
+      will output nines.  If not, the final attempt at an induction solution
+      will be used for performance calculations.  If no solution is found,
+      which is different than being fully converged to satisfy the tolerances,
+      nines will always be generated.  I added the total number of cases to the
+      warning message.
+ I added an input option (Beep) to enable/disable beeps on errors.  It is also
+      used in the NWTC Library.
+
+3.02.00d-mlb 28-August-2006  M. Buhl
+ I calculated a' as a function of a and replaced the 2D Newton-Raphson routine
+      with a 1D routine.
+
+3.02.00e-mlb 30-August-2006  M. Buhl
+ I tried to get the a 1D iteration on phi, but there are too many zeros.  I
+      ignored the Glauert correction.
+
+3.02.00f-mlb 31-August-2006  M. Buhl
+ I added the Glauert correction and used the correct equation for a'.  It didn't
+      help.  I give up with this technique.
+
+3.02.00g-mlb 31-August-2006  M. Buhl
+ Reverting back to v3.02.00c-mlb.
+ I renamed Ind_Prop to InductBEM.
+ I added a binary search for when the Newton-Raphson fails.
+
+3.02.00h-mlb 13-Sept-2006  M. Buhl
+ I moved GetAero outside of InductBEM.
+ I had to decrease the step size in the zero search to avoid a situation where
+      the error function just barely crosses zero before returning.  I found
+      cases where it jumped right over the lowest AI solution.  This
+      dramatically slowed the program (maybe a factor of 10), but made it much
+      more robust.  WT_Perf now seems to find solutions for all the CertTest
+      cases and for the one Paul had problems with.  Unfortunately, CertTest
+      Cases 3 and 5 get different answers, but the answers do seem valid.  I
+      guess the two codes just converged on different solutions.
+
+3.02.00h-mlb 13-Sept-2006  M. Buhl
+ I decided to test for change of sign of slope in addition to change of sign in
+      the zero search.  The logic is that if the slope changes sign and the
+      error function does not, a minima or maxima has be passed.  If that minima
+      or maxima just kissed the zero line, coarse steps could jump over it.  A
+      non-zero-crossing minima/maxima will now be searched at a fine resolution
+      and I can decrease the resolution for the normal steps.
+
+3.02.00k04-dcm 22-June-2009 D. Maniaci
+ Added file output for plotting ClBem (Cl to give AxIndError=0) and AxIndErr to
+      plot the various curves.  Finally got the ClError and AxIndError vs AlfaD
+      (or AInd or AIndComputed) to cross at the same x-axis values!  I did this
+      by solving for AxIndErr=0, solving for Dct, then solving Dct for Sw, then
+      solving Sw for CnLoc, then solving CnLoc for ClLoc.  See 6-22-09 Notes.
+
+3.02.00k05-dcm, 22-Jun-2009
+ Removed screen output of convergence variables.
+
+3.02.00m02-dcm, 7-Jul-2009
+ Changed ClBem and DCTzero calculations.
+ Added loop to calculate DctBem and new ClBem.
+ The plots match what is in the text books now.
+
+3.02.00m03-dcm, 7-Jul-2009
+ Working with the singularity.  Ouput SinAF.
+
+3.02.00n01-dcm, 7-Jul-2009
+ New formula to calculate Dct.  Removes (1/(sin(phi)*sin(phi))) term.
+      Let's see if it works!  New formula labeled as DctNew to compare with old.
+
+3.02.00p01-dcm, 8-Jul-2009
+ New TanInd formula.  Uses equation which assumes induced velocity perpendicular
+      to relative velocity for areas near AInd=1.0 to avoid the singularity.
+      This equation is smooth and continuous through AInd=1.0.  It gives similar
+      results to the old equation except at low or high AInd.  Is Vi not
+      perpendicular to W here?
+
+3.02.00p02-dcm, 9-Jul-2009
+ Applied TanInd equation from actuator disc theory.  Equation 5.10 in Wilson's
+      1984 paper "Performance Analysis of HAWT" Oregon State Univ.  This
+      equation is not a function of CtLoc.  The strength of the singularity at
+      AInd=1.0 is due to CtLoc.
+
+3.02.00p03-dcm, 9-Jul-2009
+ Try new form of Tangential Induction Factor. (Form 3)  Removes Cd from
+      calculation of Tangential Induction Factor which removes the singularity!
+
+3.02.00q01-dcm, 16-Jul-2009
+ New TanInd calculation.
+
+3.02.00q04-dcm, 20-Jul-2009
+ TanInd calculation using Amin and Amax with Cosine transtion from
+      AminSing*(1.0-DelSing) to Amin and Amax to AmaxSing*(1.0+DelSing)
+
+3.02.00q05-dcm, 20-Jul-2009
+ Changed to new Dct calculation for 0.97 < AInd < 1.03 due to singularity still
+      appearing during some extreme calculations.
+
+3.02.00q06-dcm, 20-Jul-2009
+ Last version with first version of singularity correction.
+
+3.02.01a00-dcm, 27-Jul-2009
+ Finished version of singularity correction.
+
+3.03.01a00-dcm, 27-Jul-2009
+ Changed IndType in input file from integer type to logical, since Choice 2
+      (PROPX routine) has been removed.  Also, added TISingularity option to
+      input file.
+
+3.03.01a01-dcm, 27-Jul-2009
+ Newton Raphson Algorithm
+
+3.03.01a03-dcm, 28-Jul-2009
+ Newton Raphson Algorithm Working
+
+3.03.01a06-dcm, 29-Jul-2009
+ Changed .dbg file output to only list non-converged cases.
+
+3.03.01b01-dcm, 3-Aug-2009
+ Added Find ZC (root bounding) algorithm.
+
+!Temp End 3.03.01b03-dcm, 4-Aug-2009
+ Moved TanInd calculation in subroutine GetAFTi to a call of Subroutine
+      TanIndErr
+
+3.03.01c01-dcm, 6-Aug-2009
+ Added Binary routine to convergence methods, as well as a check for "jumping"
+      between two points.
+
+3.03.01c02-dcm
+ Robust Binary search added.  Converges for all cases in UAE) test case (22
+      wouldn't converge with 2004 version.  But, this version takes 104.19
+      seconds vs 21.953 with 2004 version.
+
+3.03.01d01-dcm, 7-Aug-2009
+ Try NewtonRaphson, then Binary to speed up convergence.
+
+v3.03.02a-mlb, 3-Dec-2009  M. Buhl
+ Fixed the units for BED files when generating tab-delimited data
+      [WTP_Subs.f90\RotAnal()].
+ I modified WTP_Subs.f90\RotAnal() so that when generating tab-delimited BED
+      files, the rotor-speed, pitch, and wind-speed (or TSR) values in the
+      header were in separate cells so that people could compute using the
+      values in Excel.
+ I replaced all the calls to Read?Var to ReadVar because of the overloading now
+      available in the library.
+
+v3.03.02a-mlb, 4-Dec-2009  M. Buhl
+ I added UnfPower to input file.  I added UnUn to WTP_Mods.f90\Parameters().  I
+      added logic to output the power in unformatted form in
+      WTP_Subs.f90\ParmAnal().
+
+v3.03.02a-mlb, 10-Dec-2009  M. Buhl
+ I added OutMaxCp to the input file.  It is a option to output the conditions
+      that resulted in the maximum Cp.  I added the logic to compute it and
+      include it in the output file.
+
+v3.04.00a-mlb, 01-May-2010  M. Buhl
+ I added the ability to handle airfoil files that include Cp,min.
+
+v3.04.00b-mlb, 05-Nov-2010  M. Buhl
+ I relinked it with the latest NWTC Library (v1.03.00) and changed the call to
+      OpenCon to NWTC_Init.
+
+v3.04.00c-mlb, 13-Jan-2011  M. Buhl
+ Eliot Peterson of Clipper discovered that there was little shear effect being
+      seen.  I found that, when dimensional input is used, the nondimensional
+      span location was divided by the dimensional hub height instead of the
+      nondimensional hub height.  I changed GetData() and RotAnal() to fix it.
+ I relinked it with the latest NWTC Library (v1.03.01).
+
+v3.04.00d-mlb, 21-Jun-2011  M. Buhl
+ I fixed some coding issues related to compiling with gcc v4.5.3: All calls to
+      Abort() were changed to ProgAbort().  This was not documented within the
+      code because it affected so much!  I had to change the return variable for
+      the recursive FindZC() function to "ZC" to avoid a compiler error.
+ I fixed the problem with finding the conditions for maximum Cp.
+
+
+v3.04.01a-dcm, 21-Jun-2010  D. Maniaci
+v3.04.01b-dcm, 22-Jun-2010
+ Adding Cavitation model and new inputs for CAV and DAWT models.
+
+v3.04.01c-dcm, 24-Jun-2010
+ Defined HubRadND and HubHtND for non-dimensional input; in GetData in WTP_Subs.
+ Set "ShearLoc = ( 1.0 + HtLocND/HubHtND )**ShearExp" instead of
+      "ShearLoc = ( 1.0 + HtLocND/HubHt )**ShearExp"
+ Added DAWT correction factors:CavBeta*CavLambda.
+      "VWndGnd  = VelHH*ShearLoc*CavBeta*CavLambda"
+ UnDA = 9 ! Unit for diffuser augmented turbine analysis
+ Added DAWT and Cavitation logical inputs to GetData.
+ Added Cavitation Real inputs to GetData.
+ Added above 6 variables to Module PropGen.
+ Changed 'HubHt' to 'HubHtND' in GetData error check:
+      "IF ( HubHtND*CosCone*CosTilt .LT. 1.0 )  CALL Abort ( ' The hub is so
+      low, the blade will hit the ground.' )"
+ Added checks for all new inputs.  No check for using a Diffuser on a wind
+      turbine (yet).
+
+v3.04.01d-dcm, 25-Jun-2010
+ Changed FindZC from a function to a subroutine, had the returned value passed
+      as an arguement.  Fixed error which showed up after applying more
+      stringent debugger options.
+
+v3.04.01g-dcm, 30-Jun-2010
+ Changed out-nines (for non converged and no-solution cases) so that all
+      parameters output 99's, not just Cp and Power.
+ Changed out-sevens for same thing as previous line for cavitation.
+
+v3.04.01h-dcm, 2-Jul-2010 D. Maniaci
+ Changed GetCoefs() call to use logicals UseCm and UseCpmin to decide whether to
+      read and return values for Cm and Cpmin.
+
+v3.04.01i-dcs, 14-Jul-2011 Danny Sale
+ I merged the changes made in (v3.04.00d-mlb, 21-Jun-2011  M. Buhl) into
+   	(v3.04.01h-dcm, 2-Jul-2010 D. Maniaci), and then I continued to work off
+      of Dave's v3.04.01h-dcm version
+ Changed the call to OpenCon to NWTC_Init in WT_Perf.f90
+ Added these additional variables to the .bed output file: local element radius,
+      incidence angle (pitch+local twist), pitching moment coefficient, minimum
+      pressure coefficient, cavitation number, cavitation flag (outputs true if
+      cavitation is detected, false otherwise).
+ Moved the initiation of CmLoc (the local pitching moment coef) to the WTP_Data
+      modul.
+ Renamed the variable "CavitationCheck" to "CavElement"
+ Added a message to the .oup output file that indicates if cavitation occured or
+      not.  If cavitation occured for any of the cases of a parametric analysis,
+      there will be a message at the header of the file that says "Cavitation:
+      Yes", and if cavitation did not occur then it will say "Cavitation: No".
+      For a combined case analysis, there will be a seperate column that outputs
+      "T" or "F" so we can distinguish which case(s) cavitation occured on.
+      "T" means cavitaion occured, "F" otherwise
+ Changed the way the cavitation safety factor is applied in the check for
+      cavitation.  Now the cavitation safety factor is multiplied to the vapor
+      pressure, I think this is more intuitive.
+ If the user wants to run a cavitation analysis, I added a check to make sure
+      that the user has input minimum pressure coefficients.
+ For parametric anlysis, the header of the .oup file was being repeated at the
+      top of each data table in the .oup output file.  I moved the write
+      statements for the .oup header outside of a DO loop, so that now it only
+      gets written once at the top of the file.
+ I modified the alignment of the sectors for sheared flow analysis. Previously,
+      it was never possible to analyze the "12-o-clock" position due to the way
+      the sectors were defined (the azimuth angle could never reach 0 degrees),
+      but now the first azimuth angle starts at 0 degrees.  The motivation for
+      this modification was to check for cavitation at the "12-o-clock"
+      position, and also this should be more accurate for sheared inflow in
+      general.
+ Updated the formula for HtLocND (the non-dimensional height of the blade
+      segment above the hub elevation).  This new formula was suggested by
+      Gunjit, who suggested it to Marshall, who suggested it to me, and it is
+      suggested that this new formula is slightly more acurate ;)
+ I updated the formula for atmospheric pressure (PressAtm) and defined a new
+      variable for the gravitational acceleration (Gravity) in WTP_Data.  The
+      new variable Gravity works for both sets of units (English and Metric).
+ I added some additional logic in the IF statement which checks for cavitation.
+      Namely, the cavitation flags were not being reset at the correct times,	so
+      I fixed this problem and added some dummy values for when cavitation
+      analysis is not requested by the user.
+ Commented out the statements which output "Sevens" for when cavitation is
+      detected.  Instead, I added "True" or "False" flags to be output when
+      cavitation is (or is not) detected, but the originally calculated values
+      for power, power coefficient, etc... are still output as normal. But look
+      at the cavitation flags in the output files so you know whether or not you
+      can trust the predictions!
+ I think the variable SpdUns was being truncated, I made a small change to the
+      assignment of SpdUns and the compiler stopped complaining now
+ I updated all of the sample input files in the CertTest folder to be compatible
+      with this current alpha version of WT_Perf, and I added a new test case
+      named "TEST07_MHK_RefModel" which represents a hydrokinetic turbine and
+      utilizes the new cavitation analysis. I updated ArcFiles.txt in the
+      developer's archive to include the files from this new test case.
+ I compiled this alpha version of WT_Perf with gfortran v4.7 dated 2011-04-19,
+      and it works!  I also tested to see if the g95 compiler works, and it does
+      too!  I linked this version with the alpha NWTC Subroutine Library
+      (v1.04.00c).
+ I updated the user's guide to reflect this current alpha version of WT_Perf.
+
+
+v3.04.01j-dcs, 20-Jul-2011 Danny Sale
+ This is a fork of v3.04.01i-dcs that includes a cascade model to account for
+      blades passing through the wakes of previous turbines.  It will likely be
+      merged back into the code base later after a release.
+
+
+v3.05.00a-adp, 09-Nov-2012 Andy Platt
+ This is a reformatted version of v3.04.01i-dcs. Indentation and tabbing were
+      changed for readability.  Since the input file changed from v3.04.01h
+      to v3.04.01i, we incriment the second number set in this version.
+ I included a minor change in the BinSearch subroutine of InductBEM so that it
+      now runs for NSplit times before exiting (used to be hard coded at 10
+      iterations).
+ There was a convergence issue related to the 2-D Newt Raphson routine where it
+      is calculation both AxInd and TanInd at the same time, it changes the
+      value of TanInd. If it does not find a solution, it exits leaving TanInd
+      with the last value it tried (Which could be of order of hundreds -- which
+      is non-physical). The value of TanInd is reset to some initial guess after
+      the Newt-Raphson iterations exit without finding a solution.
+ Removed the DAWT feature since this was never fully developed (it was merely a
+      multiplicative on the area of 1.3 -- which effectively multiplied the
+      input velocity). The flag is still read from the input, but now the
+      program will present an error message and abort. See the programming and
+      users guides for more inforation.
+ Removed the failed cases counters within the loops of the RotAnal subroutine.
+      They were causing inacurate reporting of the number of actual cases run
+      that did not converge (i.e. of 1 case analyzed, 9 failed...).
+ In the subroutine InductBEM, I changed the lines that read "Solution = .TRUE."
+      to read "ZFound   = .TRUE.".  The reason is that ZFound is passed out to
+      the RotAnal subroutine into the variable Solution.  Previously it was
+      possible to set Solution to true, but then pass out a false ZFound that
+      overwrote it.
+ Modified the BED output for non-converging cases. Now it sets the cavitation
+      flag as false (used to be set as true). This avoids having a blade element
+      data (bed) file showing cavitation when the output (oup) file does not.
+ In WTP_Subs.f90, replaced the Flt2LStr function with the more generic Num2LStr
+      function. The latter command is an interface within the NWTC Library. It
+      points to the Flt2LStr function as required.
+ Tweaked the limits imposed on TanIndErr for when it runs and what it can return
+      as viable answers.  Tweaked the limits on the NewtRaphson for what values
+      it can return.  This improved the stability of the code and sped it up
+      slightly.
+ Added in a flag to the oup file (for combined cases only) and a flag to the bed
+      file to indicate if the case completely converged.  This makes it easier
+      to see if the results worked properly.  This required some restructuring
+      of how the RotAnal routine works.
+ Replaced the "OutNines" option with ConvFlag to specify how to handle non-
+      convergent cases.  This takes an option of 0 (output the bad result),
+      1 (the old outnines behaviour), 2 (NaN).
+ Changed the exiting of WT_Perf for analysis of a single non-convergent case.
+      Now reports normal exit rather than aborting.
+ Changed the way NSplit is handled as suggested by Danny Sale. This is now read
+      in from the input file and treated as a parameter. The lower limit of 1 is
+      enforced, but no upper limit is in place.
+ Modified the CertTests for linux compatability.
+ Added a makefile for use on linux systems.
+
+
+======
+To Do:
+ Add user-defines output format
+ Add DAWT analysis -- Read Beta and Lamdbda terms from a new input file. (Like
+      reading airfoil data, in GetAF).
+ Add convergence vs solution check (so the user knows if there is a solution,
+      but no convergence.)
+ Add Converge to the BinSearch argument list instead of treating it as global.
+ Add AeroDyn initial axial induction factor calculation (Equation 20 in AeroDyn
+      theory manual).  May or may not help induciton iteration.
+ Add Cq and Ct output.
+ Add input to specify output format.
+ Make compatible with AeroDyn 13.
+ Try to make induction of a node close in value to adjacent nodes.
+ Update the manual to describe the process of creating analysis nodes.
+ Option to eliminate headers for easy import into MatLab.
+ Consider using previous, converged values (for a given case) as initial guesses
+      and maybe forget the exhaustive search unless the N-R fails to converge.
+ Include the algorithm to interpolate lift & drag coefficients from the new
+      AirfoilPrep algorithm (v2.3) added by Danny Sale

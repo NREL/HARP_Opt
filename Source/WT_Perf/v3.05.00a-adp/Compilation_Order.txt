@@ -1,0 +1,13 @@
+If you want to compile WT_Perf, you should compile the routines in this order:
+
+SingPrec.f90   (or DoubPrec.f90)
+SysIVF.f90     (or one of the other Sys***.f90 files for different compilers)
+NWTC_IO.f90
+NWTC_Num.f90
+ModMesh.f90
+NWTC_Aero.f90
+NWTC_Library.f90
+WTP_Mods.f90
+WTP_Subs.f90
+setprog.f90
+WT_Perf.f90

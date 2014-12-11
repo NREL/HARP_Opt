@@ -1,0 +1,15 @@
+AeroDyn airfoil file.  Compatible with AeroDyn v13.0.
+Rectangular cross section as per Jim Tangler
+Because lift is always zero, these values are unused.
+     1             Number of airfoil tables in this file
+     9.0e9         Reynolds number in millions.  For efficiency, make very large if only one table.
+     0.0           Control setting
+     0.00          Stall angle (deg)
+     0.00          Zero lift angle of attack (deg)
+     3.52          Cn slope for zero lift (dimensionless)
+     0.4906        Cn at stall value for positive angle of attack
+    -0.4906        Cn at stall value for negative angle of attack
+     0.0000        Angle of attack for minimum CD (deg)
+     0.003         Minimum CD value
+-180	0.000	1.2
+ 180	0.000	1.2
