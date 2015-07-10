@@ -17,8 +17,21 @@ Previous Versions:
 #Installing and Running HARP_Opt
 See the [HARP-Opt GitHub Wiki](https://github.com/NREL/HARP_Opt/wiki/).
 
+HARP_Opt should work with any modern version of Matlab, or can be compiled
+as standalone executable for Windows and Unix.  If you plan to run the compiled
+versions, you need to install the Matlab Component Runtime (MCR).  And, if you 
+want to re-compile HARP_Opt you will need the Matlab Compiler toolbox.
+Here are the corresponding versions of HARP_Opt, Matlab and MCR, and Compiler (see download links for MCR):
+
+| HARP_Opt  | MATLAB Release   | MATLAB  MCR     | MATLAB Compiler  |
+| --------- | ---------------- | --------------- | ---------------- |
+| 1.0       | R2008b (7.7)     | [7.9](https://nwtc.nrel.gov/MatLab_MCRInstaller)             | 4.9              |
+| 2.0       | R2011b (7.13)    | [7.16](https://nwtc.nrel.gov/MatLab_MCRInstaller)            | 4.16             |
+| 3.0       | R2013a (8.1)     | [8.1](http://www.mathworks.com/products/compiler/mcr/)             | 4.18.1           |
+
 #Documentation
-Documentation for v3.0.0 is currently under development
+Documentation for v3.0.0 is currently under development. See the alpha change log which describes
+major updates since version 2. [alpha change log](https://github.com/NREL/HARP_Opt/blob/master/Documentation/alpha_change_log.txt)
 
 #Current Code Maintainers
 * [Danny Sale](mailto:dsale@uw.edu) (University of Washington)
