@@ -85,7 +85,7 @@ Minor updates while implementing data structures in the code and the input files
 Major revision. 
 - Switched the variables over to "matlab structures". This simplifies the calling 
   and returning of function variables.
-- The code is not "cross-platform" and can be run on windows/osx/linux by changing 
+- The code is now "cross-platform" and can be run on windows/osx/linux by changing 
   the name of the WT-Perf executible file in the input file (specifically, by 
   setting the WTP.wtpExe variable in the input file)
 - A matlab data structure is now used to call the PS algorythim. This has not yet 
