@@ -32,7 +32,8 @@ end
 % f = fstruct / f_aero;
 % f = f_aero:
 
-%% multiple objective
+%% multiple objective, I think only works if you use the Multiple Objective Genetic Algorithm (MOGA)
+%  so be sure to define the OPT.ALG variable to one of the MOGA options
 switch OPT.STRUCT
     case 'CoBlade'
         % derives some kind of structural objective from CoBlade
