@@ -81,7 +81,7 @@ WTP.SW_TOL          = 1e-5                       %Error tolerance for skewed-wak
 WTP.USE_CM          = false                      %Moment coefficients included in airfoil data files?
 WTP.USE_CPMIN       = true                       %Minimum pressure coefficients included in airfoil data files?
 WTP.INTERP_COEFS    = 'shape'                    %Method to interopolate airfoil performance coefficients. Choose 'normal' or 'shape'
-WTP.wtpExe          = 'WT_Perf_v3.05.00_windows.exe'  %Name of the WT-Perf executable. This must be in the system search path      
+WTP.wtpExe          = 'WT_Perf'  %Name of the WT-Perf executable. This must be in the system search path      
 
 %----  Cavitation Model  --------------------------------------------------------
 CAV.CAVITATION      = true                       %Check for cavitation?
