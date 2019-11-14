@@ -10,7 +10,7 @@ DEV.RAND_SEED       = 42                         %a positive integer, that seeds
 OPT.AERO            = 'AEP'                      %Choose 'eff' to optimize efficiency or 'AEP' to maximize anual energy production.
 OPT.STRUCT          = 'WT_Perf'                     %Choose 'WT_Perf' or 'CoBlade' to use either of these codes to derive the structural design.  Choosing 'none' disables multi-objective optimization.
 OPT.PLOT_ITER       = true                       %Create plots during run?
-OPT.ALG             = 'MOGeneticAlgorithm'            %Choose from algorithms 'GradientSearch', 'PatternSearch', 'ParticleSwarm', 'GeneticAlgorithm', 'MOGeneticAlgorithm'. Note, one of the following input files is also required: options_GradientSearch.inp, options_PatternSearch.inp, options_ParticleSwarm.inp, options_GeneticAlgorithm.inp, options_MOGeneticAlgorithm.inp
+OPT.ALG             = 'GeneticAlgorithm'            %Choose from algorithms 'GradientSearch', 'PatternSearch', 'ParticleSwarm', 'GeneticAlgorithm', 'MOGeneticAlgorithm'. Note, one of the following input files is also required: options_GradientSearch.inp, options_PatternSearch.inp, options_ParticleSwarm.inp, options_GeneticAlgorithm.inp, options_MOGeneticAlgorithm.inp
 OPT.PLOT_GLAUERT    = true                       %Should the Glauert Optimal solution that is used to initialize the opt algorithm be plotted?
 
 %-----  Turbine Configuration  --------------------------------------------------
